@@ -34,12 +34,12 @@ ReaSyntax
 
 ##### Automatic detection of JS files:
 JS files have no file extension, but ReaSyntax can try to detect JS file directly from the file content. The feature is enabled by default but can be turned off in package settings.
-Open `Preferences -> Package Settings -> ReaSyntax -> Settings - User` and set `"detect_js_file:"` to `true` or `false`.
 
+Open `Preferences -> Package Settings -> ReaSyntax -> Settings - User` and set `"detect_js_file:"` to `true` or `false`.   
 To see how it's done go to `Preferences -> Package Settings -> ReaSyntax -> Settings - Default`
 
 ##### Automatically load color schemes for each syntax individually:
-Open `Preferences -> Package Settings -> ReaSyntax -> Settings - User` and set `"color_scheme_js"`, `"color_scheme_eel"` or `"color_scheme_walter"` to color scheme you would like to use with that specific syntax.
+Open `Preferences -> Package Settings -> ReaSyntax -> Settings - User` and set `"color_scheme_js"`, `"color_scheme_eel"` or `"color_scheme_walter"` to color scheme you would like to use with that specific syntax.   
 If you would like to use currently selected color scheme (in `Preferences -> Color Scheme`) just set those to `null`.
 
 To see how it's done go to `Preferences -> Package Settings -> ReaSyntax -> Settings - Default`
