@@ -3,6 +3,23 @@ ReaSyntax
 
 [Sublime text](http://www.sublimetext.com/3) syntax package for scripting languages found in [Cockos REAPER](http://www.reaper.fm/): Jesusonic/EEL/WALTER
 
+## Installation
+
+### Using Package Control
+ * Install [Package Control](http://sublime.wbond.net/installation).
+ * Use `Cmd+Shift+P` or `Ctrl+Shift+P` and search for `Package Control: Install Package`
+ * Wait for Package Control to download latest package list and search for `ReaSyntax`.
+
+### Download manually
+ * Download zipped repository from [here](https://github.com/Breeder/ReaSyntax/archive/master.zip)
+ * Unzip the files and rename the folder to `ReaSyntax`
+ * Find your `Packages` directory using the menu item  `Preferences -> Browse Packages...`
+ * Copy the folder into your Sublime Text `Packages` directory
+
+### Using git
+ * Find your `Packages` directory using the menu item  `Preferences -> Browse Packages...`
+ * While inside the `Packages` directory, clone the theme repository using the command: `git clone https://github.com/Breeder/ReaSyntax/ "ReaSyntax"`
+
 ## Features
 * Package consists of syntax files for 3 languages found in REAPER:
  * [JS](http://www.reaper.fm/sdk/js/js.php) - scripting language which is compiled on the fly and allows you to modify and/or generate audio and MIDI, as well as draw custom vector based UI and analysis displays.
@@ -11,13 +28,18 @@ ReaSyntax
 
  * [WALTER](http://www.reaper.fm/sdk/walter/walter.php) - enables definition of visual layout and appearance of objects within REAPER -- currently, it can be used to customize the layout and appearance of the track panels, mixer panels, envelope panels, transport etc...
 
-* It also includes 2 color schemes:
- * Default - Modification of built-in Monokai Bright
- * JS Editor - Replication of built-in JS Editor found in REAPER
+* Additional color schemes:
+ * Default - Modification of built-in Monokai Bright made to work a bit better with supplied syntax
+ * JS Editor - Replica of the built-in JS Editor found in REAPER
 
-* JS files have no file extensions, but ReaSyntax will try to detect JS file directly from the file content. The feature is enabled by default but can be turn off in package settings.
+* Automatic detection of JS files:
+ * JS files have no file extension, but ReaSyntax can try to detect JS file directly from the file content. The feature is enabled by default but can be turned off in package settings.
+ Open `Preferences -> Package Settings -> ReaSyntax -> Settings - User` and set `"detect_js_file:"` to `true` or `false`.
+ To see how it's done go to `Preferences -> Package Settings -> ReaSyntax -> Settings - Default`
 
-* Default color scheme for each individual syntax can be set in package settings
+* Automatically load color schemes for each syntax individually:
+ * Open `Preferences -> Package Settings -> ReaSyntax -> Settings - User` and set `"color_scheme_js"`, `"color_scheme_eel"` or `"color_scheme_walter"` to color scheme you would like to use with that specific syntax. If you would like to use currently selected color scheme (in `Preferences -> Color Scheme`) just set those to `null`.
+To see how it's done go to `Preferences -> Package Settings -> ReaSyntax -> Settings - Default`
 
 ## Screenshots
 * EEL Syntax using Default color scheme:
