@@ -1,0 +1,327 @@
+{
+	"name": "EEL (REAPER)",
+	"scopeName": "source.EEL",
+	"fileTypes": ["eel"],
+	"word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?",
+	"patterns":
+	[
+		{
+			"begin": "//",
+			"beginCaptures":
+			{
+				"0":{"name": "punctuation.definition.comment.EEL"}
+			},
+			"end": "$\\n?",
+			"name": "comment.line.double-slash.EEL",
+			"patterns":
+			[
+				{
+					"match": "(?>\\\\\\s*\\n)",
+					"name": "punctuation.separator.continuation.EEL"
+				}
+			],
+			"comment": "Comment: single line"
+		},
+		{
+			"begin": "/\\*",
+			"captures":
+			{
+				"0":{"name": "punctuation.definition.comment.EEL"}
+			},
+			"end": "\\*/",
+			"name": "comment.block.EEL",
+			"comment": "Comment: block"
+		},
+		{
+			"begin": "\"",
+			"beginCaptures":
+			{
+				"0": {"name": "punctuation.definition.string.begin.EEL"}
+			},
+			"end": "\"",
+			"endCaptures":
+			{
+				"0": {"name": "punctuation.definition.string.end.EEL"}
+			},
+			"name": "string.quoted.double.EEL",
+			"patterns":
+			[
+				{"include": "#string_escaped_char"},
+				{"include": "#string_placeholder"}
+			],
+			"comment": "Double quote strings"
+		},
+		{
+			"begin": "'",
+			"beginCaptures":
+			{
+				"0": {"name": "punctuation.definition.string.begin.EEL"}
+			},
+			"end": "'",
+			"endCaptures":
+			{
+				"0": {"name": "punctuation.definition.string.end.EEL"}
+			},
+			"name": "string.quoted.single.EEL",
+			"patterns":
+			[
+				{"include": "#string_escaped_char"}
+			],
+			"comment": "Single quote strings"
+		},
+		{
+			"match": "^(import)(\\s.*)",
+			"name": "entity.other.attribute-name.EEL",
+			"captures":
+			{
+				"2":{"name": "variable.other.EEL"},
+			},
+			"comment": "Description line"
+		},
+		{
+			"begin": "^\\s*(function)\\s+((?=[A-Za-z_][A-Za-z0-9_]*\\s*\\(?))?",
+			"beginCaptures":
+			{
+				"0": {"name": "storage.modifier.function.EEL"},
+			},
+			"end": "(\\))",
+			"endCaptures":
+			{
+				"1": {"name": "punctuation.mark.parentheses.function.definition.EEL"},
+			},
+			"name": "meta.function.EEL",
+			"patterns":
+			[
+				{"include": "#function_parameters"},
+				{
+					"begin": "(?=[A-Za-z_][A-Za-z0-9_]*)",
+					"contentName": "entity.name.function.python",
+					"end": "(?![A-Za-z0-9_])",
+					"patterns":
+					[
+						{
+							"match": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\s*(?:(,)|(?=[\\n\\)]))",
+							"captures":
+							{
+								"1": {"name": "entity.name.function.EEL"},
+							},
+						}
+					]
+				},
+			],
+			"comment": "Functions: user definition"
+		},
+		{
+			"begin": "(global)|(instance)|(local)\\s+(?=s*\\(?)",
+			"beginCaptures":
+			{
+				"1": {"name": "storage.modifier.local.EEL"},
+				"2": {"name": "storage.modifier.global.EEL"},
+				"3": {"name": "storage.modifier.instance.EEL"}
+
+			},
+			"end": "(\\))",
+			"endCaptures":
+			{
+				"1": {"name": "punctuation.mark.parentheses.function.definition.EEL"},
+			},
+			"name": "meta.function.EEL",
+			"patterns":
+			[
+				{"include": "#function_parameters"},
+			],
+			"comment": "Functions: modifiers"
+		},
+		{
+			"match": "this",
+			"name": "variable.language.this.EEL",
+			"comment": "Variable: language"
+		},
+		{
+			"match": "(loop|while)",
+			"name": "keyword.control.loop.EEL",
+			"comment": "Control: looping"
+		},
+		{
+			"match": "(abs|acos|asin|atan|atan2|ceil|cos|exp|floor|invsqrt|log|log10|max|min|rand|sign|sin|spl|sqr|sqrt|tan)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.math.EEL",
+			"comment": "Functions: basic math"
+		},
+		{
+			"match": "(convolve_c|fft|fft_ipermute|fft_permute|ifft)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.fft.EEL",
+			"comment": "Functions: fft"
+		},
+		{
+			"match": "(freembuf|memcpy|memset)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.memory.EEL",
+			"comment": "Functions: memory"
+		},
+		{
+			"match": "((stack_)(exch|peek|pop|push))(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.stack.EEL",
+			"comment": "Functions: stack"
+		},
+		{
+			"match": "(f(close|eof|flush|getc|gets|open|printf|read|seek|tell|write))(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.file.EEL",
+			"comment": "Functions: file"
+		},
+		{
+			"match": "(gfx_(arc|blit|blitext|blurto|circle|deltablit|drawchar|drawnumber|drawstr|getchar|getfont|getimgdim|getpixel|gradrect|line|lineto|loadimg|measurestr|muladdrect|printf|quit|rect|rectto|roundrect|setfont|setimgdim|setpixel|transformblit|update))(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.graphics.EEL",
+			"comment": "Functions: graphics"
+		},
+		{
+			"match": "(sprintf|printf|match|matchi|(str(_delsub|_insert|_getchar|_setchar|_setlen|cat|cmp|cpy|cpy_from|cpy_substr|icmp|len|ncat|ncmp|ncpy|nicmp)))(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.strings.EEL",
+			"comment": "Functions: strings"
+		},
+		{
+			"match": "(tcp_(close|connect|listen|listen_end|recv|send|set_block))(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.tcp.EEL",
+			"comment": "Functions: tcp"
+		},
+		{
+			"match": "(time|time_precise)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.time.EEL",
+			"comment": "Functions: time"
+		},
+		{
+			"match": "(atexit|eval|defer|sleep)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.misc.EEL",
+			"comment": "Functions: misc"
+		},
+		{
+			"match": "[a-zA-Z_][a-zA-Z_0-9]*\\b(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.other.EEL",
+			"comment": "Functions: other"
+		},
+		{
+			"match": "gfx_(a|b|clear|dest|g|h|mode|r|texth|w|x|y)\\b",
+			"name": "support.variable.graphics.EEL",
+			"comment": "Variables: graphics"
+		},
+		{
+			"match": "mouse_(cap|hwheel|wheel|x|y)\\b",
+			"name": "support.variable.mouse.EEL",
+			"comment": "Variables: mouse"
+		},
+		{
+			"match": "===|!==|==|!=|>=|<=|&&|!|(?<!>)>(?!>)|(?<!<)<(?!<)|\\|\\|",
+			"name": "keyword.operator.logical.EEL",
+			"comment": "Operators: logical"
+		},
+		{
+			"match": "&=|~=|\\|=|<<|>>|&|~|\\|",
+			"name": "keyword.operator.bitwise.EEL",
+			"comment": "Operators: bitwise"
+		},
+		{
+			"match": "\\*=|\\/=|%=|\\^=|\\+=|\\-=|\\*|\\/|%|\\^|\\+|\\-|=",
+			"name": "keyword.operator.math.EEL",
+			"comment": "Operators: math"
+		},
+		{
+			"match": "\\?|:",
+			"name": "keyword.operator.tertiary.EEL",
+			"comment": "Operators: tertiary"
+		},
+		{
+			"match": "\\[|\\]",
+			"name": "keyword.operator.array.EEL",
+			"comment": "Operators: array brackets"
+		},
+		{
+			"match": "(\\()|(\\))|(\\{)|(\\})|(;)|(,)|(\\.)",
+			"name": "punctuation.mark.EEL",
+			"captures":
+			{
+				"1":{"name": "punctuation.mark.parentheses.EEL"},
+				"2":{"name": "punctuation.mark.parentheses.EEL"},
+				"3":{"name": "punctuation.mark.braces.EEL"},
+				"4":{"name": "punctuation.mark.braces.EEL"},
+				"5":{"name": "punctuation.mark.semicolon.EEL"},
+				"6":{"name": "punctuation.mark.comma.EEL"},
+				"7":{"name": "punctuation.mark.comma.EEL"},
+			},
+			"comment": "Miscellaneous punctuation marks"
+		},
+		{
+			"match": "((\\$|0)(x|X)[0-9a-fA-F]*)|([0-9]+(\\.)?[0-9]*)|(\\$'.')|(\\$~\\d)|(\\$pi)",
+			"name": "constant.numeric.EEL",
+			"captures":
+			{
+				"5":{"name": "constant.numeric.decimalmark.EEL"},
+			},
+			"comment": "Hex and decimal numbers, ASCII values, bit masks, PI"
+		},
+		{
+			"match": "(#)([a-zA-Z_][a-zA-Z_0-9]*\\b)?",
+			"name": "variable.parameter.string.EEL",
+			"captures":
+			{
+				"1":{"name": "variable.parameter.string.hash.EEL"},
+			},
+			"comment": "User variables: named/temporary string"
+		},
+		{
+			"match": "[a-zA-Z_][a-zA-Z_0-9]*\\b",
+			"name": "variable.other.EEL",
+			"comment": "User variables"
+		},
+	],
+	"repository":
+	{
+		"string_escaped_char":
+		{
+			"patterns":
+			[
+				{
+					"match": "\\\\(\\\\|[abefnprtv'\"?]|[0-3]\\d{,2}|[4-7]\\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})",
+					"name": "constant.character.escape.EEL"
+				},
+				{
+					"match": "\\\\.",
+					"name": "invalid.illegal.unknown-escape.EEL"
+				}
+			]
+		},
+		"string_placeholder":
+		{
+			"patterns":
+			[
+				{
+					"match": "(?x)%\n    \t\t\t\t\t\t(\\d+\\$)?                             # field (argument #)\n    \t\t\t\t\t\t[#0\\- +']*                           # flags\n    \t\t\t\t\t\t[,;:_]?                              # separator character (AltiVec)\n    \t\t\t\t\t\t((-?\\d+)|\\*(-?\\d+\\$)?)?              # minimum field width\n    \t\t\t\t\t\t(\\.((-?\\d+)|\\*(-?\\d+\\$)?)?)?         # precision\n    \t\t\t\t\t\t(hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)? # length modifier\n    \t\t\t\t\t\t[diouxXDOUeEfFgGaACcSspn%]           # conversion type\n    \t\t\t\t\t",
+					"name": "constant.other.placeholder.EEL"
+				},
+				{
+					"match": "%",
+					"name": "invalid.illegal.placeholder.EEL"
+				}
+			]
+		},
+		"function_parameters":
+		{
+			"begin": "(\\()",
+			"beginCaptures":
+			{
+				"1": {"name": "punctuation.mark.parentheses.function.definition.EEL"}
+			},
+			"contentName": "meta.function.parameters.EEL",
+			"end": "(?=\\)\\s*)",
+			"patterns":
+			[
+				{
+					"match": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\s*((,)?|(?=[\\n\\)]))",
+					"captures":
+					{
+						"1": {"name": "variable.parameter.function.EEL"},
+						"2": {"name": "punctuation.mark.comma.function.parameter.EEL"}
+					},
+				}
+			]
+		},
+	},
+	"uuid": "2efcdf21-8674-4191-a64f-6a9c26cfdc98"
+}

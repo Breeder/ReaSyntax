@@ -1,0 +1,16 @@
+// Never edit this file (it will get overwritten on update) - use for reference only.
+// To edit settings add stuff to "User/ReaSyntax.sublime-settings"
+// For easy access to the file go to Preferences->Package Settings->ReaSyntax->Settings - User
+{
+	// Set colors to use with JS syntax. To disable and use global colors do "color_scheme_js": null
+	"color_scheme_js": "Packages/ReaSyntax/Default.tmTheme",
+
+	// Set colors to use with EEL syntax. To disable and use global colors do "color_scheme_eel": null
+	"color_scheme_eel": "Packages/ReaSyntax/Default.tmTheme",
+
+	// Set colors to use with WALTER syntax. To disable and use global colors do "color_scheme_walter": null
+	"color_scheme_walter": "Packages/ReaSyntax/Default.tmTheme",
+
+	// JS files have no extension so syntax cannot be deducted purely from filename. Set this to true to detect JS file based on file content
+	"detect_js_file": true
+}

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>rtconfig.txt</string>
+	</array>
+	<key>name</key>
+	<string>WALTER (REAPER)</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>comment</key>
+			<string>Comment: single line</string>
+			<key>match</key>
+			<string>;.*</string>
+			<key>name</key>
+			<string>comment.line.WALTER</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.WALTER</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Double quote strings</string>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.WALTER</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.WALTER</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#string_escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string_placeholder</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.WALTER</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Single quote strings</string>
+			<key>end</key>
+			<string>'</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.WALTER</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.single.WALTER</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#string_escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>15</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.WALTER</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Variables: standard elements</string>
+			<key>match</key>
+			<string>(((gen_)(pan_zeroline|vol_zeroline))|((mcp_)(altmeterpos|master_voltext_flags|mastervupeakheight|min_height|pan_zeroline|showborders|vol_zeroline|voltext_flags|vupeakheight))|((tcp_)(folderindent|heights|margin|master_voltext_flags|pan_zeroline|showborders|vol_zeroline|voltext_flags|vupeakwidth))|((use_)(overlays|pngs))|(item_volknobfg|trans_speed_zeroline|transport_showborders))((\s*([0-9a-fA-F]*))*)\b</string>
+			<key>name</key>
+			<string>entity.other.attribute-name.WALTER</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.variable.at.WALTER</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Variables: scalar value</string>
+			<key>match</key>
+			<string>((@)|((?&lt;=\{)\s*))(x|y|w|h|ls|ts|rs|bs|[0-7])</string>
+			<key>name</key>
+			<string>support.variable.scalar.WALTER</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables: track specific</string>
+			<key>match</key>
+			<string>(?&lt;!\.|\w)(folderdepth|folderstate|maxfolderdepth|mcp_iconsize|mcp_maxfolderdepth|mcp_wantextmix|recarm|tcp_fxparms|tcp_iconsize|tracknch|trackpanmode)\b</string>
+			<key>name</key>
+			<string>support.variable.track.WALTER</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables: transport specific</string>
+			<key>match</key>
+			<string>(trans_(flag|docked|center))\b</string>
+			<key>name</key>
+			<string>support.variable.transport.WALTER</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables: envelope specific</string>
+			<key>match</key>
+			<string>envcp_type\b</string>
+			<key>name</key>
+			<string>support.variable.envelope.WALTER</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables: misc</string>
+			<key>match</key>
+			<string>(?&lt;!\.|\w)(w|h|reaper_version)\b</string>
+			<key>name</key>
+			<string>support.variable.misc.WALTER</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Commands: layouts</string>
+			<key>match</key>
+			<string>(Layout|EndLayout|GlobalLayout)\b</string>
+			<key>name</key>
+			<string>entity.name.section.WALTER</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Commands: other</string>
+			<key>match</key>
+			<string>(clear|front|rect|reset|set)\b</string>
+			<key>name</key>
+			<string>keyword.control.commands.WALTER</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Operators: logical</string>
+			<key>match</key>
+			<string>==|!=|&gt;=|&lt;=|\?|!|(?&lt;!&gt;)&gt;(?!&gt;)|(?&lt;!&lt;)&lt;(?!&lt;)</string>
+			<key>name</key>
+			<string>keyword.operator.logical.WALTER</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Operators: bitwise</string>
+			<key>match</key>
+			<string>&amp;</string>
+			<key>name</key>
+			<string>keyword.operator.bitwise.WALTER</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Operators: math</string>
+			<key>match</key>
+			<string>\+:|\*:|\*|\+|:</string>
+			<key>name</key>
+			<string>keyword.operator.combinators.WALTER</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Operators: coordinate list</string>
+			<key>match</key>
+			<string>\[|\]</string>
+			<key>name</key>
+			<string>keyword.operator.coordinatelist.WALTER</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.parentheses.WALTER</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.parentheses.WALTER</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.braces.WALTER</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.braces.WALTER</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.comma.WALTER</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.comma.WALTER</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Miscellaneous punctuation marks</string>
+			<key>match</key>
+			<string>(\()|(\))|(\{)|(\})|(,)|(\.)</string>
+			<key>name</key>
+			<string>punctuation.mark.WALTER</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>User variables</string>
+			<key>match</key>
+			<string>[a-zA-Z_][a-zA-Z_0-9]*\b</string>
+			<key>name</key>
+			<string>variable.other.WALTER</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.decimalmark.WALTER</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Hex and decimal numbers</string>
+			<key>match</key>
+			<string>[0-9]+(\.)?[0-9]*</string>
+			<key>name</key>
+			<string>constant.numeric.WALTER</string>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>string_escaped_char</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\(\\|[abefnprtv'"?]|[0-3]\d{,2}|[4-7]\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})</string>
+					<key>name</key>
+					<string>constant.character.escape.WALTER</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>invalid.illegal.unknown-escape.WALTER</string>
+				</dict>
+			</array>
+		</dict>
+		<key>string_placeholder</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(?x)%
+    						(\d+\$)?                             # field (argument #)
+    						[#0\- +']*                           # flags
+    						[,;:_]?                              # separator character (AltiVec)
+    						((-?\d+)|\*(-?\d+\$)?)?              # minimum field width
+    						(\.((-?\d+)|\*(-?\d+\$)?)?)?         # precision
+    						(hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)? # length modifier
+    						[diouxXDOUeEfFgGaACcSspn%]           # conversion type
+    					</string>
+					<key>name</key>
+					<string>constant.other.placeholder.WALTER</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>%</string>
+					<key>name</key>
+					<string>invalid.illegal.placeholder.WALTER</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>scopeName</key>
+	<string>source.WALTER</string>
+	<key>uuid</key>
+	<string>8020bc5f-3869-4380-994b-2f15b7211a3b</string>
+	<key>word_separators</key>
+	<string>./\()"'-:,.;&lt;&gt;~!@#%^&amp;*|+=[]{}`~?</string>
+</dict>
+</plist>

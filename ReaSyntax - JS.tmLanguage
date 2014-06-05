@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>jsfx-inc</string>
+	</array>
+	<key>name</key>
+	<string>JS (REAPER)</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>begin</key>
+			<string>//</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.jesusonic</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Comment: single line</string>
+			<key>end</key>
+			<string>$\n?</string>
+			<key>name</key>
+			<string>comment.line.double-slash.jesusonic</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(?&gt;\\\s*\n)</string>
+					<key>name</key>
+					<string>punctuation.separator.continuation.jesusonic</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>/\*</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.jesusonic</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Comment: block</string>
+			<key>end</key>
+			<string>\*/</string>
+			<key>name</key>
+			<string>comment.block.jesusonic</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.jesusonic</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Double quote strings</string>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.jesusonic</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.jesusonic</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#string_escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string_placeholder</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.jesusonic</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Single quote strings</string>
+			<key>end</key>
+			<string>'</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.jesusonic</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.single.jesusonic</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#string_escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>variable.other.jesusonic</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.jesusonic</string>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.jesusonic</string>
+				</dict>
+				<key>8</key>
+				<dict>
+					<key>name</key>
+					<string>variable.other.jesusonic</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Description lines</string>
+			<key>match</key>
+			<string>^(((desc:|in_pin:|out_pin:|import\s*)(.*))|filename:(\s*(\d*)(,)(.*))?|(slider([1-5]?\d)|(6[1-4])):)</string>
+			<key>name</key>
+			<string>entity.other.attribute-name.jesusonic</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.at.jesusonic</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.numeric.jesusonic</string>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>invalid.illegal.jesusonic</string>
+				</dict>
+				<key>8</key>
+				<dict>
+					<key>name</key>
+					<string>invalid.illegal.jesusonic</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Code section titles</string>
+			<key>match</key>
+			<string>(((^@)(init|slider|block|sample|serialize|gfx((\s+\d*){0,2}))\b)|(^@.*))|(^\s*@[^\s]*)</string>
+			<key>name</key>
+			<string>entity.name.tag.jesusonic</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.jesusonic</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Variables: global modifier</string>
+			<key>match</key>
+			<string>(_global)(\.)</string>
+			<key>name</key>
+			<string>entity.name.tag.global.jesusonic</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^\s*(function)\s+((?=[A-Za-z_][A-Za-z0-9_]*\s*\(?))?</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>storage.modifier.function.jesusonic</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Functions: user definition</string>
+			<key>end</key>
+			<string>(\))</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.parentheses.function.definition.jesusonic</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.function.jesusonic</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#function_parameters</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?=[A-Za-z_][A-Za-z0-9_]*)</string>
+					<key>contentName</key>
+					<string>entity.name.function.python</string>
+					<key>end</key>
+					<string>(?![A-Za-z0-9_])</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.jesusonic</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>\b([a-zA-Z_][a-zA-Z_0-9]*)\s*(?:(,)|(?=[\n\)]))</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(global)|(instance)|(local)\s+(?=s*\(?)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.modifier.local.jesusonic</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>storage.modifier.global.jesusonic</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>storage.modifier.instance.jesusonic</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Functions: modifiers</string>
+			<key>end</key>
+			<string>(\))</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.parentheses.function.definition.jesusonic</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.function.jesusonic</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#function_parameters</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variable: language</string>
+			<key>match</key>
+			<string>this</string>
+			<key>name</key>
+			<string>variable.language.this.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Control: looping</string>
+			<key>match</key>
+			<string>(loop|while)</string>
+			<key>name</key>
+			<string>keyword.control.loop.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: basic math</string>
+			<key>match</key>
+			<string>(abs|acos|asin|atan|atan2|ceil|cos|exp|floor|invsqrt|log|log10|max|min|pow|rand|sign|sin|sqr|sqrt|tan)(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.math.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: atomic</string>
+			<key>match</key>
+			<string>(atomic_(add|exch|get|set|setifequal))(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.atomic.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: sample access</string>
+			<key>match</key>
+			<string>(spl)(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.samples.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: fft</string>
+			<key>match</key>
+			<string>(convolve_c|fft|fft_ipermute|fft_permute|ifft|imdct|mdct)(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.fft.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: memory</string>
+			<key>match</key>
+			<string>(freembuf|memcpy|memset)(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.memory.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: stack</string>
+			<key>match</key>
+			<string>((stack_)(exch|peek|pop|push))(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.stack.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: sliders</string>
+			<key>match</key>
+			<string>(slider_automate|sliderchange)(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.sliders.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: MIDI</string>
+			<key>match</key>
+			<string>(midirecv|midirecv_buf|midirecv_str|midisend|midisend_buf|midisend_str|midisyx)(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.midi.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: file</string>
+			<key>match</key>
+			<string>(file_(avail|close|mem|open|rewind|riff|string|text|var))(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.file.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: graphics</string>
+			<key>match</key>
+			<string>(gfx_(arc|blit|blitext|blurto|circle|deltablit|drawchar|drawnumber|drawstr|getchar|getfont|getimgdim|getpixel|gradrect|line|lineto|loadimg|measurestr|muladdrect|printf|rect|rectto|roundrect|setfont|setimgdim|setpixel|transformblit))(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.graphics.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: strings</string>
+			<key>match</key>
+			<string>(sprintf|match|matchi|(str(_getchar|_setchar|cat|cmp|cpy|cpy_from|cpy_fromslider|cpy_substr|icmp|len|ncat|ncmp|ncpy|nicmp)))(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.strings.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: time</string>
+			<key>match</key>
+			<string>(time|time_precise)(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.time.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Functions: other</string>
+			<key>match</key>
+			<string>[a-zA-Z_][a-zA-Z_0-9]*\b(?=(\s|(
+?|
+))*\()</string>
+			<key>name</key>
+			<string>support.function.other.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables: basic</string>
+			<key>match</key>
+			<string>(spl\d+|slider\d+|trigger)\b</string>
+			<key>name</key>
+			<string>support.variable.basic.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables: audio</string>
+			<key>match</key>
+			<string>(srate|num_ch|samplesblock|tempo|play_state|play_position|beat_position|(ts_(denom|num)))\b</string>
+			<key>name</key>
+			<string>support.variable.audio.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables: extended</string>
+			<key>match</key>
+			<string>((ext_(noinit|nodenorm|midi_bus))|reg\d\d)\b</string>
+			<key>name</key>
+			<string>support.variable.extended.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables: memory</string>
+			<key>match</key>
+			<string>gmem\b</string>
+			<key>name</key>
+			<string>support.variable.memory.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables: MIDI</string>
+			<key>match</key>
+			<string>midi_bus\b</string>
+			<key>name</key>
+			<string>support.variable.midi.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables: PDC</string>
+			<key>match</key>
+			<string>pdc_(bot_ch|delay|midi|top_ch)\b</string>
+			<key>name</key>
+			<string>support.variable.pdc.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables: graphics</string>
+			<key>match</key>
+			<string>gfx_(a|b|clear|dest|g|h|mode|r|texth|w|x|y)\b</string>
+			<key>name</key>
+			<string>support.variable.graphics.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables: mouse</string>
+			<key>match</key>
+			<string>mouse_(cap|hwheel|wheel|x|y)\b</string>
+			<key>name</key>
+			<string>support.variable.mouse.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Operators: logical</string>
+			<key>match</key>
+			<string>===|!==|==|!=|&gt;=|&lt;=|&amp;&amp;|!|(?&lt;!&gt;)&gt;(?!&gt;)|(?&lt;!&lt;)&lt;(?!&lt;)|\|\|</string>
+			<key>name</key>
+			<string>keyword.operator.logical.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Operators: bitwise</string>
+			<key>match</key>
+			<string>&amp;=|~=|\|=|&lt;&lt;|&gt;&gt;|&amp;|~|\|</string>
+			<key>name</key>
+			<string>keyword.operator.bitwise.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Operators: math</string>
+			<key>match</key>
+			<string>\*=|\/=|%=|\^=|\+=|\-=|\*|\/|%|\^|\+|\-|=</string>
+			<key>name</key>
+			<string>keyword.operator.math.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Operators: tertiary</string>
+			<key>match</key>
+			<string>\?|:</string>
+			<key>name</key>
+			<string>keyword.operator.tertiary.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Operators: array brackets</string>
+			<key>match</key>
+			<string>\[|\]</string>
+			<key>name</key>
+			<string>keyword.operator.array.jesusonic</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.parentheses.jesusonic</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.braces.jesusonic</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.braces.jesusonic</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.parentheses.jesusonic</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.semicolon.jesusonic</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.comma.jesusonic</string>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.comma.jesusonic</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Miscellaneous punctuation marks</string>
+			<key>match</key>
+			<string>(\()|(\))|(\{)|(\})|(;)|(,)|(\.)</string>
+			<key>name</key>
+			<string>punctuation.mark.jesusonic</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.decimalmark.jesusonic</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Hex and decimal numbers, ASCII values, bit masks, PI</string>
+			<key>match</key>
+			<string>((\$|0)(x|X)[0-9a-fA-F]*)|([0-9]+(\.)?[0-9]*)|(\$'.')|(\$~\d)|(\$pi)</string>
+			<key>name</key>
+			<string>constant.numeric.jesusonic</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.string.hash.jesusonic</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>User variables: named/temporary string</string>
+			<key>match</key>
+			<string>(#)([a-zA-Z_][a-zA-Z_0-9]*\b)?</string>
+			<key>name</key>
+			<string>variable.parameter.string.jesusonic</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>User variables</string>
+			<key>match</key>
+			<string>[a-zA-Z_][a-zA-Z_0-9]*\b</string>
+			<key>name</key>
+			<string>variable.other.jesusonic</string>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>function_parameters</key>
+		<dict>
+			<key>begin</key>
+			<string>(\()</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.parentheses.function.definition.jesusonic</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>meta.function.parameters.jesusonic</string>
+			<key>end</key>
+			<string>(?=\)\s*)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>variable.parameter.function.jesusonic</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.mark.comma.function.parameter.jesusonic</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\b([a-zA-Z_][a-zA-Z_0-9]*)\s*((,)?|(?=[\n\)]))</string>
+				</dict>
+			</array>
+		</dict>
+		<key>string_escaped_char</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\(\\|[abefnprtv'"?]|[0-3]\d{,2}|[4-7]\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})</string>
+					<key>name</key>
+					<string>constant.character.escape.jesusonic</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>invalid.illegal.unknown-escape.jesusonic</string>
+				</dict>
+			</array>
+		</dict>
+		<key>string_placeholder</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(?x)%
+    						(\d+\$)?                             # field (argument #)
+    						[#0\- +']*                           # flags
+    						[,;:_]?                              # separator character (AltiVec)
+    						((-?\d+)|\*(-?\d+\$)?)?              # minimum field width
+    						(\.((-?\d+)|\*(-?\d+\$)?)?)?         # precision
+    						(hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)? # length modifier
+    						[diouxXDOUeEfFgGaACcSspn%]           # conversion type
+    					</string>
+					<key>name</key>
+					<string>constant.other.placeholder.jesusonic</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>%</string>
+					<key>name</key>
+					<string>invalid.illegal.placeholder.jesusonic</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>scopeName</key>
+	<string>source.jesusonic</string>
+	<key>uuid</key>
+	<string>9e6f3c34-86c1-40d4-9232-9ceae5581bf7</string>
+	<key>word_separators</key>
+	<string>./\()"'-:,.;&lt;&gt;~!@#%^&amp;*|+=[]{}`~?</string>
+</dict>
+</plist>

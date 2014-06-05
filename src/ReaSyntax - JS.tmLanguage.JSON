@@ -1,0 +1,391 @@
+{
+	"name": "JS (REAPER)",
+	"scopeName": "source.jesusonic",
+	"fileTypes": ["jsfx-inc"],
+	"word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?",
+	"patterns":
+	[
+		{
+			"begin": "//",
+			"beginCaptures":
+			{
+				"0":{"name": "punctuation.definition.comment.jesusonic"}
+			},
+			"end": "$\\n?",
+			"name": "comment.line.double-slash.jesusonic",
+			"patterns":
+			[
+				{
+					"match": "(?>\\\\\\s*\\n)",
+					"name": "punctuation.separator.continuation.jesusonic"
+				}
+			],
+			"comment": "Comment: single line"
+		},
+		{
+			"begin": "/\\*",
+			"captures":
+			{
+				"0":{"name": "punctuation.definition.comment.jesusonic"}
+			},
+			"end": "\\*/",
+			"name": "comment.block.jesusonic",
+			"comment": "Comment: block"
+		},
+		{
+			"begin": "\"",
+			"beginCaptures":
+			{
+				"0": {"name": "punctuation.definition.string.begin.jesusonic"}
+			},
+			"end": "\"",
+			"endCaptures":
+			{
+				"0": {"name": "punctuation.definition.string.end.jesusonic"}
+			},
+			"name": "string.quoted.double.jesusonic",
+			"patterns":
+			[
+				{"include": "#string_escaped_char"},
+				{"include": "#string_placeholder"}
+			],
+			"comment": "Double quote strings"
+		},
+		{
+			"begin": "'",
+			"beginCaptures":
+			{
+				"0": {"name": "punctuation.definition.string.begin.jesusonic"}
+			},
+			"end": "'",
+			"endCaptures":
+			{
+				"0": {"name": "punctuation.definition.string.end.jesusonic"}
+			},
+			"name": "string.quoted.single.jesusonic",
+			"patterns":
+			[
+				{"include": "#string_escaped_char"}
+			],
+			"comment": "Single quote strings"
+		},
+		{
+			"match": "^(((desc:|in_pin:|out_pin:|import\\s*)(.*))|filename:(\\s*(\\d*)(,)(.*))?|(slider([1-5]?\\d)|(6[1-4])):)",
+			"name": "entity.other.attribute-name.jesusonic",
+			"captures":
+			{
+				"4":{"name": "variable.other.jesusonic"},
+				"6":{"name": "constant.numeric.jesusonic"},
+				"7":{"name": "punctuation.mark.jesusonic"},
+				"8":{"name": "variable.other.jesusonic"},
+			},
+			"comment": "Description lines"
+		},
+		{
+			"match": "(((^@)(init|slider|block|sample|serialize|gfx((\\s+\\d*){0,2}))\\b)|(^@.*))|(^\\s*@[^\\s]*)",
+			"name": "entity.name.tag.jesusonic",
+			"captures":
+			{
+				"3":{"name": "entity.name.tag.at.jesusonic"},
+				"5":{"name": "entity.name.tag.numeric.jesusonic"},
+				"7":{"name": "invalid.illegal.jesusonic"},
+				"8":{"name": "invalid.illegal.jesusonic"}
+			},
+			"comment": "Code section titles"
+		},
+		{
+			"match": "(_global)(\\.)",
+			"name": "entity.name.tag.global.jesusonic",
+			"captures":
+			{
+				"2":{"name": "punctuation.mark.jesusonic"},
+			},
+			"comment": "Variables: global modifier"
+		},
+		{
+			"begin": "^\\s*(function)\\s+((?=[A-Za-z_][A-Za-z0-9_]*\\s*\\(?))?",
+			"beginCaptures":
+			{
+				"0": {"name": "storage.modifier.function.jesusonic"},
+			},
+			"end": "(\\))",
+			"endCaptures":
+			{
+				"1": {"name": "punctuation.mark.parentheses.function.definition.jesusonic"},
+			},
+			"name": "meta.function.jesusonic",
+			"patterns":
+			[
+				{"include": "#function_parameters"},
+				{
+					"begin": "(?=[A-Za-z_][A-Za-z0-9_]*)",
+					"contentName": "entity.name.function.python",
+					"end": "(?![A-Za-z0-9_])",
+					"patterns":
+					[
+						{
+							"match": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\s*(?:(,)|(?=[\\n\\)]))",
+							"captures":
+							{
+								"1": {"name": "entity.name.function.jesusonic"},
+							},
+						}
+					]
+				},
+			],
+			"comment": "Functions: user definition"
+		},
+		{
+			"begin": "(global)|(instance)|(local)\\s+(?=s*\\(?)",
+			"beginCaptures":
+			{
+				"1": {"name": "storage.modifier.local.jesusonic"},
+				"2": {"name": "storage.modifier.global.jesusonic"},
+				"3": {"name": "storage.modifier.instance.jesusonic"}
+
+			},
+			"end": "(\\))",
+			"endCaptures":
+			{
+				"1": {"name": "punctuation.mark.parentheses.function.definition.jesusonic"},
+			},
+			"name": "meta.function.jesusonic",
+			"patterns":
+			[
+				{"include": "#function_parameters"},
+			],
+			"comment": "Functions: modifiers"
+		},
+		{
+			"match": "this",
+			"name": "variable.language.this.jesusonic",
+			"comment": "Variable: language"
+		},
+		{
+			"match": "(loop|while)",
+			"name": "keyword.control.loop.jesusonic",
+			"comment": "Control: looping"
+		},
+		{
+			"match": "(abs|acos|asin|atan|atan2|ceil|cos|exp|floor|invsqrt|log|log10|max|min|pow|rand|sign|sin|sqr|sqrt|tan)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.math.jesusonic",
+			"comment": "Functions: basic math"
+		},
+		{
+			"match": "(atomic_(add|exch|get|set|setifequal))(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.atomic.jesusonic",
+			"comment": "Functions: atomic"
+		},
+		{
+			"match": "(spl)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.samples.jesusonic",
+			"comment": "Functions: sample access"
+		},
+		{
+			"match": "(convolve_c|fft|fft_ipermute|fft_permute|ifft|imdct|mdct)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.fft.jesusonic",
+			"comment": "Functions: fft"
+		},
+		{
+			"match": "(freembuf|memcpy|memset)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.memory.jesusonic",
+			"comment": "Functions: memory"
+		},
+		{
+			"match": "((stack_)(exch|peek|pop|push))(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.stack.jesusonic",
+			"comment": "Functions: stack"
+		},
+		{
+			"match": "(slider_automate|sliderchange)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.sliders.jesusonic",
+			"comment": "Functions: sliders"
+		},
+		{
+			"match": "(midirecv|midirecv_buf|midirecv_str|midisend|midisend_buf|midisend_str|midisyx)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.midi.jesusonic",
+			"comment": "Functions: MIDI"
+		},
+		{
+			"match": "(file_(avail|close|mem|open|rewind|riff|string|text|var))(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.file.jesusonic",
+			"comment": "Functions: file"
+		},
+		{
+			"match": "(gfx_(arc|blit|blitext|blurto|circle|deltablit|drawchar|drawnumber|drawstr|getchar|getfont|getimgdim|getpixel|gradrect|line|lineto|loadimg|measurestr|muladdrect|printf|rect|rectto|roundrect|setfont|setimgdim|setpixel|transformblit))(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.graphics.jesusonic",
+			"comment": "Functions: graphics"
+		},
+		{
+			"match": "(sprintf|match|matchi|(str(_getchar|_setchar|cat|cmp|cpy|cpy_from|cpy_fromslider|cpy_substr|icmp|len|ncat|ncmp|ncpy|nicmp)))(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.strings.jesusonic",
+			"comment": "Functions: strings"
+		},
+		{
+			"match": "(time|time_precise)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.time.jesusonic",
+			"comment": "Functions: time"
+		},
+		{
+			"match": "[a-zA-Z_][a-zA-Z_0-9]*\\b(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.other.jesusonic",
+			"comment": "Functions: other"
+		},
+		{
+			"match": "(spl\\d+|slider\\d+|trigger)\\b",
+			"name": "support.variable.basic.jesusonic",
+			"comment": "Variables: basic"
+		},
+		{
+			"match": "(srate|num_ch|samplesblock|tempo|play_state|play_position|beat_position|(ts_(denom|num)))\\b",
+			"name": "support.variable.audio.jesusonic",
+			"comment": "Variables: audio"
+		},
+		{
+			"match": "((ext_(noinit|nodenorm|midi_bus))|reg\\d\\d)\\b",
+			"name": "support.variable.extended.jesusonic",
+			"comment": "Variables: extended"
+		},
+		{
+			"match": "gmem\\b",
+			"name": "support.variable.memory.jesusonic",
+			"comment": "Variables: memory"
+		},
+		{
+			"match": "midi_bus\\b",
+			"name": "support.variable.midi.jesusonic",
+			"comment": "Variables: MIDI"
+		},
+		{
+			"match": "pdc_(bot_ch|delay|midi|top_ch)\\b",
+			"name": "support.variable.pdc.jesusonic",
+			"comment": "Variables: PDC"
+		},
+		{
+			"match": "gfx_(a|b|clear|dest|g|h|mode|r|texth|w|x|y)\\b",
+			"name": "support.variable.graphics.jesusonic",
+			"comment": "Variables: graphics"
+		},
+		{
+			"match": "mouse_(cap|hwheel|wheel|x|y)\\b",
+			"name": "support.variable.mouse.jesusonic",
+			"comment": "Variables: mouse"
+		},
+		{
+			"match": "===|!==|==|!=|>=|<=|&&|!|(?<!>)>(?!>)|(?<!<)<(?!<)|\\|\\|",
+			"name": "keyword.operator.logical.jesusonic",
+			"comment": "Operators: logical"
+		},
+		{
+			"match": "&=|~=|\\|=|<<|>>|&|~|\\|",
+			"name": "keyword.operator.bitwise.jesusonic",
+			"comment": "Operators: bitwise"
+		},
+		{
+			"match": "\\*=|\\/=|%=|\\^=|\\+=|\\-=|\\*|\\/|%|\\^|\\+|\\-|=",
+			"name": "keyword.operator.math.jesusonic",
+			"comment": "Operators: math"
+		},
+		{
+			"match": "\\?|:",
+			"name": "keyword.operator.tertiary.jesusonic",
+			"comment": "Operators: tertiary"
+		},
+		{
+			"match": "\\[|\\]",
+			"name": "keyword.operator.array.jesusonic",
+			"comment": "Operators: array brackets"
+		},
+		{
+			"match": "(\\()|(\\))|(\\{)|(\\})|(;)|(,)|(\\.)",
+			"name": "punctuation.mark.jesusonic",
+			"captures":
+			{
+				"1":{"name": "punctuation.mark.parentheses.jesusonic"},
+				"2":{"name": "punctuation.mark.braces.jesusonic"},
+				"3":{"name": "punctuation.mark.braces.jesusonic"},
+				"4":{"name": "punctuation.mark.parentheses.jesusonic"},
+				"5":{"name": "punctuation.mark.semicolon.jesusonic"},
+				"6":{"name": "punctuation.mark.comma.jesusonic"},
+				"7":{"name": "punctuation.mark.comma.jesusonic"},
+			},
+			"comment": "Miscellaneous punctuation marks"
+		},
+		{
+			"match": "((\\$|0)(x|X)[0-9a-fA-F]*)|([0-9]+(\\.)?[0-9]*)|(\\$'.')|(\\$~\\d)|(\\$pi)",
+			"name": "constant.numeric.jesusonic",
+			"captures":
+			{
+				"5":{"name": "constant.numeric.decimalmark.jesusonic"},
+			},
+			"comment": "Hex and decimal numbers, ASCII values, bit masks, PI"
+		},
+		{
+			"match": "(#)([a-zA-Z_][a-zA-Z_0-9]*\\b)?",
+			"name": "variable.parameter.string.jesusonic",
+			"captures":
+			{
+				"1":{"name": "variable.parameter.string.hash.jesusonic"},
+			},
+			"comment": "User variables: named/temporary string"
+		},
+		{
+			"match": "[a-zA-Z_][a-zA-Z_0-9]*\\b",
+			"name": "variable.other.jesusonic",
+			"comment": "User variables"
+		},
+	],
+	"repository":
+	{
+		"string_escaped_char":
+		{
+			"patterns":
+			[
+				{
+					"match": "\\\\(\\\\|[abefnprtv'\"?]|[0-3]\\d{,2}|[4-7]\\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})",
+					"name": "constant.character.escape.jesusonic"
+				},
+				{
+					"match": "\\\\.",
+					"name": "invalid.illegal.unknown-escape.jesusonic"
+				}
+			]
+		},
+		"string_placeholder":
+		{
+			"patterns":
+			[
+				{
+					"match": "(?x)%\n    \t\t\t\t\t\t(\\d+\\$)?                             # field (argument #)\n    \t\t\t\t\t\t[#0\\- +']*                           # flags\n    \t\t\t\t\t\t[,;:_]?                              # separator character (AltiVec)\n    \t\t\t\t\t\t((-?\\d+)|\\*(-?\\d+\\$)?)?              # minimum field width\n    \t\t\t\t\t\t(\\.((-?\\d+)|\\*(-?\\d+\\$)?)?)?         # precision\n    \t\t\t\t\t\t(hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)? # length modifier\n    \t\t\t\t\t\t[diouxXDOUeEfFgGaACcSspn%]           # conversion type\n    \t\t\t\t\t",
+					"name": "constant.other.placeholder.jesusonic"
+				},
+				{
+					"match": "%",
+					"name": "invalid.illegal.placeholder.jesusonic"
+				}
+			]
+		},
+		"function_parameters":
+		{
+			"begin": "(\\()",
+			"beginCaptures":
+			{
+				"1": {"name": "punctuation.mark.parentheses.function.definition.jesusonic"}
+			},
+			"contentName": "meta.function.parameters.jesusonic",
+			"end": "(?=\\)\\s*)",
+			"patterns":
+			[
+				{
+					"match": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\s*((,)?|(?=[\\n\\)]))",
+					"captures":
+					{
+						"1": {"name": "variable.parameter.function.jesusonic"},
+						"2": {"name": "punctuation.mark.comma.function.parameter.jesusonic"}
+					},
+				}
+			]
+		},
+	},
+	"uuid": "9e6f3c34-86c1-40d4-9232-9ceae5581bf7"
+}

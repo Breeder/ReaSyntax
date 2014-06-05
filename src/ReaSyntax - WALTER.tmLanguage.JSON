@@ -1,0 +1,178 @@
+{
+	"name": "WALTER (REAPER)",
+	"scopeName": "source.WALTER",
+	"fileTypes": ["rtconfig.txt"],
+	"word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?",
+	"patterns":
+	[
+		{
+			"match": ";.*",
+			"name": "comment.line.WALTER",
+			"comment": "Comment: single line"
+		},
+		{
+			"begin": "\"",
+			"beginCaptures":
+			{
+				"0": {"name": "punctuation.definition.string.begin.WALTER"}
+			},
+			"end": "\"",
+			"endCaptures":
+			{
+				"0": {"name": "punctuation.definition.string.end.WALTER"}
+			},
+			"name": "string.quoted.double.WALTER",
+			"patterns":
+			[
+				{"include": "#string_escaped_char"},
+				{"include": "#string_placeholder"}
+			],
+			"comment": "Double quote strings"
+		},
+		{
+			"begin": "'",
+			"beginCaptures":
+			{
+				"0": {"name": "punctuation.definition.string.begin.WALTER"}
+			},
+			"end": "'",
+			"endCaptures":
+			{
+				"0": {"name": "punctuation.definition.string.end.WALTER"}
+			},
+			"name": "string.quoted.single.WALTER",
+			"patterns":
+			[
+				{"include": "#string_escaped_char"}
+			],
+			"comment": "Single quote strings"
+		},
+		{
+			"match": "(((gen_)(pan_zeroline|vol_zeroline))|((mcp_)(altmeterpos|master_voltext_flags|mastervupeakheight|min_height|pan_zeroline|showborders|vol_zeroline|voltext_flags|vupeakheight))|((tcp_)(folderindent|heights|margin|master_voltext_flags|pan_zeroline|showborders|vol_zeroline|voltext_flags|vupeakwidth))|((use_)(overlays|pngs))|(item_volknobfg|trans_speed_zeroline|transport_showborders))((\\s*([0-9a-fA-F]*))*)\\b",
+			"name": "entity.other.attribute-name.WALTER",
+			"captures":
+			{
+				"15":{"name": "constant.numeric.WALTER"},
+			},
+			"comment": "Variables: standard elements"
+		},
+		{
+			"match": "((@)|((?<=\\{)\\s*))(x|y|w|h|ls|ts|rs|bs|[0-7])",
+			"name": "support.variable.scalar.WALTER",
+			"captures":
+			{
+				"1":{"name": "support.variable.at.WALTER"},
+			},
+			"comment": "Variables: scalar value"
+		},
+		{
+			"match": "(?<!\\.|\\w)(folderdepth|folderstate|maxfolderdepth|mcp_iconsize|mcp_maxfolderdepth|mcp_wantextmix|recarm|tcp_fxparms|tcp_iconsize|tracknch|trackpanmode)\\b",
+			"name": "support.variable.track.WALTER",
+			"comment": "Variables: track specific"
+		},
+		{
+			"match": "(trans_(flag|docked|center))\\b",
+			"name": "support.variable.transport.WALTER",
+			"comment": "Variables: transport specific"
+		},
+		{
+			"match": "envcp_type\\b",
+			"name": "support.variable.envelope.WALTER",
+			"comment": "Variables: envelope specific"
+		},
+		{
+			"match": "(?<!\\.|\\w)(w|h|reaper_version)\\b",
+			"name": "support.variable.misc.WALTER",
+			"comment": "Variables: misc"
+		},
+		{
+			"match": "(Layout|EndLayout|GlobalLayout)\\b",
+			"name": "entity.name.section.WALTER",
+			"comment": "Commands: layouts"
+		},
+		{
+			"match": "(clear|front|rect|reset|set)\\b",
+			"name": "keyword.control.commands.WALTER",
+			"comment": "Commands: other"
+		},
+		{
+			"match": "==|!=|>=|<=|\\?|!|(?<!>)>(?!>)|(?<!<)<(?!<)",
+			"name": "keyword.operator.logical.WALTER",
+			"comment": "Operators: logical"
+		},
+		{
+			"match": "&",
+			"name": "keyword.operator.bitwise.WALTER",
+			"comment": "Operators: bitwise"
+		},
+		{
+			"match": "\\+:|\\*:|\\*|\\+|:",
+			"name": "keyword.operator.combinators.WALTER",
+			"comment": "Operators: math"
+		},
+		{
+			"match": "\\[|\\]",
+			"name": "keyword.operator.coordinatelist.WALTER",
+			"comment": "Operators: coordinate list"
+		},
+		{
+			"match": "(\\()|(\\))|(\\{)|(\\})|(,)|(\\.)",
+			"name": "punctuation.mark.WALTER",
+			"captures":
+			{
+				"1":{"name": "punctuation.mark.parentheses.WALTER"},
+				"2":{"name": "punctuation.mark.parentheses.WALTER"},
+				"3":{"name": "punctuation.mark.braces.WALTER"},
+				"4":{"name": "punctuation.mark.braces.WALTER"},
+				"5":{"name": "punctuation.mark.comma.WALTER"},
+				"6":{"name": "punctuation.mark.comma.WALTER"},
+			},
+			"comment": "Miscellaneous punctuation marks"
+		},
+		{
+			"match": "[a-zA-Z_][a-zA-Z_0-9]*\\b",
+			"name": "variable.other.WALTER",
+			"comment": "User variables"
+		},
+		{  	"match": "[0-9]+(\\.)?[0-9]*",
+			"name": "constant.numeric.WALTER",
+			"captures":
+			{
+				"1":{"name": "constant.numeric.decimalmark.WALTER"},
+			},
+			"comment": "Hex and decimal numbers"
+		},
+	],
+	"repository":
+	{
+		"string_escaped_char":
+		{
+			"patterns":
+			[
+				{
+					"match": "\\\\(\\\\|[abefnprtv'\"?]|[0-3]\\d{,2}|[4-7]\\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})",
+					"name": "constant.character.escape.WALTER"
+				},
+				{
+					"match": "\\\\.",
+					"name": "invalid.illegal.unknown-escape.WALTER"
+				}
+			]
+		},
+		"string_placeholder":
+		{
+			"patterns":
+			[
+				{
+					"match": "(?x)%\n    \t\t\t\t\t\t(\\d+\\$)?                             # field (argument #)\n    \t\t\t\t\t\t[#0\\- +']*                           # flags\n    \t\t\t\t\t\t[,;:_]?                              # separator character (AltiVec)\n    \t\t\t\t\t\t((-?\\d+)|\\*(-?\\d+\\$)?)?              # minimum field width\n    \t\t\t\t\t\t(\\.((-?\\d+)|\\*(-?\\d+\\$)?)?)?         # precision\n    \t\t\t\t\t\t(hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)? # length modifier\n    \t\t\t\t\t\t[diouxXDOUeEfFgGaACcSspn%]           # conversion type\n    \t\t\t\t\t",
+					"name": "constant.other.placeholder.WALTER"
+				},
+				{
+					"match": "%",
+					"name": "invalid.illegal.placeholder.WALTER"
+				}
+			]
+		}
+	},
+	"uuid": "8020bc5f-3869-4380-994b-2f15b7211a3b"
+}

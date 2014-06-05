@@ -1,0 +1,183 @@
+{
+	"name": "ReaSyntax - Default",
+	"settings": [
+		{
+			"settings": {
+				"activeGuide": "#9D550FB0",
+				"background": "#272822",
+				"bracketContentsForeground": "#F8F8F2A5",
+				"bracketContentsOptions": "underline",
+				"bracketsForeground": "#F8F8F2A5",
+				"bracketsOptions": "underline",
+				"caret": "#F8F8F0",
+				"findHighlight": "#FFE792",
+				"findHighlightForeground": "#000000",
+				"foreground": "#F8F8F2",
+				"inactiveSelection": "#BBBBBB",
+				"inactiveSelectionForeground": "#222222",
+				"invisibles": "#3B3A32",
+				"lineHighlight": "#3E3D32",
+				"selection": "#9D550F",
+				"selectionForeground": "#FFFFF8",
+				"tagsOptions": "stippled_underline"
+			}
+		},
+		{
+			"name": "Comments (single line, blocks)",
+			"scope": "comment",
+			"settings": {
+				"foreground": "#75715E"
+			}
+		},
+		{
+			"name": "String",
+			"scope": "string",
+			"settings": {
+				"foreground": "#E6DB74"
+			}
+		},
+		{
+			"name": "Description lines (desc:, in_pin:,sliderX: etc...) and WALTER standard elements",
+			"scope": "entity.other.attribute-name",
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#A6E22E"
+			}
+		},
+		{
+			"name": "Code section titles (@init,@slider etc...), global variables (_global)",
+			"scope": "entity.name.tag",
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#00FFFF"
+			}
+		},
+		{
+			"name": "Layout commands in WALTER (Layout, EndLayout, GlobalLayout)",
+			"scope": "entity.name.section",
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#00FFFF"
+			}
+		},
+		{
+			"name": "Functions: user definition",
+			"scope": "entity.name.function",
+			"settings": {
+				"foreground": "#A6E22E"
+			}
+		},
+		{
+			"name": "Functions: parameters",
+			"scope": "variable.parameter.function",
+			"settings": {
+				"fontStyle": "italic",
+				"foreground": "#FD971F"
+			}
+		},
+		{
+			"name": "Storage modifier (function, local, instance, global)",
+			"scope": "storage.modifier",
+			"settings": {
+				"foreground": "#66D9EF"
+			}
+		},
+		{
+			"name": "Variable: language (this)",
+			"scope": "variable.language",
+			"settings": {
+				"foreground": "#00C0FF"
+			}
+		},
+		{
+			"name": "Control (loop, while)",
+			"scope": "keyword.control",
+			"settings": {
+				"foreground": "#F92672"
+			}
+		},
+		{
+			"name": "Commands in WALTER (set, clear, rect, reset, front)",
+			"scope": "keyword.control.commands",
+			"settings": {
+				"foreground": "#F92672"
+			}
+		},
+		{
+			"name": "Functions: math, atomic, samples, fft, memory, stack, sliders, midi, file, graphics, strings, tcp, time, misc, other",
+			"scope": "support.function",
+			"settings": {
+				"foreground": "#66D9EF"
+			}
+		},
+		{
+			"name": "Variables: built-in (basic, audio, extended, memory, MIDI, PDC, graphics, mouse, WALTER scalar variables)",
+			"scope": "support.variable",
+			"settings": {
+				"foreground": "#FF8080"
+			}
+		},
+		{
+			"name": "Operators (logical, bitwise, math, tertiary, array, WALTER combinators and coordinate list)",
+			"scope": "keyword.operator",
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#E400FF"
+			}
+		},
+		{
+			"name": "Punctuation (parentheses, semicolon, comma, dot)",
+			"scope": "punctuation.mark",
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#F8F8F2"
+			}
+		},
+		{
+			"name": "Punctuation (WALTER braces)",
+			"scope": "punctuation.mark.braces.WALTER",
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#E400FF"
+			}
+		},
+		{
+			"name": "Number",
+			"scope": "constant.numeric",
+			"settings": {
+				"foreground": "#AE81FF"
+			}
+		},
+		{
+			"name": "Named/temporary string variable",
+			"scope": "variable.parameter",
+			"settings": {
+				"foreground": "#FD971F"
+			}
+		},
+		{
+			"name": "Variable",
+			"scope": "variable",
+			"settings": {
+				"foreground": "#F8F8F2"
+			}
+		},
+		{
+			"name": "Escape characters and format specifiers",
+			"scope": "constant.character.escape, constant.other.placeholder",
+			"settings": {
+				"foreground": "#AE81FF"
+			}
+		},
+		{
+			"name": "Invalid",
+			"scope": "invalid",
+			"settings": {
+				"background": "#F92672",
+				"fontStyle": "",
+				"foreground": "#F8F8F0"
+			}
+		}
+	],
+	"uuid": "d1f3cca9-3501-4088-a8b3-fe322592b17b"
+}

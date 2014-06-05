@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Indentation Rules</string>
+	<key>scope</key>
+	<string>source.jesusonic, source.EEL</string>
+	<key>settings</key>
+	<dict>
+		<key>decreaseIndentPattern</key>
+		<string>^(.*\*/)?\s*\)[;\s]*$</string>
+		<key>increaseIndentPattern</key>
+		<string>^.*(\([^)"']*)$</string>
+		<key>indentParens</key>
+		<true/>
+	</dict>
+	<key>uuid</key>
+	<string>ee890972-ca9d-4447-a453-f9d5776617eb</string>
+</dict>
+</plist>
