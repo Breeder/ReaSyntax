@@ -21,10 +21,10 @@ ReaSyntax
 
 ## Screenshots
 * EEL Syntax using Default color scheme:
-  ![EEL Syntax using Default color scheme](https://raw.githubusercontent.com/Breeder/ReaSyntax/master/wiki/EEL%20-%20Default.png)
+  ![EEL Syntax using Default color scheme](http://stash.reaper.fm/20871/EEL%20-%20Default.png)
 
 * JS Syntax using JS Editor color scheme:
-  ![EEL Syntax using JS Editor color scheme](https://raw.githubusercontent.com/Breeder/ReaSyntax/master/wiki/JS%20-%20JS%20Editor.png)
+  ![EEL Syntax using JS Editor color scheme](http://stash.reaper.fm/20872/JS%20-%20JS%20Editor.png)
 
 * WALTER Syntax using Default color scheme:
-  ![EEL Syntax using Default color scheme](https://raw.githubusercontent.com/Breeder/ReaSyntax/master/wiki/WALTER%20-%20Default.png)
+  ![EEL Syntax using Default color scheme](http://stash.reaper.fm/20873/WALTER%20-%20Default.png)
