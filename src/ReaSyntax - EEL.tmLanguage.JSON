@@ -112,7 +112,7 @@
 			"comment": "Functions: user definition"
 		},
 		{
-			"begin": "(global)|(instance)|(local)\\s+(?=s*\\(?)",
+			"begin": "(global)|(instance)|(local)\\s*(?=s*\\(?)",
 			"beginCaptures":
 			{
 				"1": {"name": "storage.modifier.local.EEL"},
@@ -243,7 +243,7 @@
 				"4":{"name": "punctuation.mark.braces.EEL"},
 				"5":{"name": "punctuation.mark.semicolon.EEL"},
 				"6":{"name": "punctuation.mark.comma.EEL"},
-				"7":{"name": "punctuation.mark.comma.EEL"},
+				"7":{"name": "punctuation.mark.dot.EEL"},
 			},
 			"comment": "Miscellaneous punctuation marks"
 		},
@@ -313,11 +313,12 @@
 			"patterns":
 			[
 				{
-					"match": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\s*((,)?|(?=[\\n\\)]))",
+					"match": "\\b([a-zA-Z_][a-zA-Z_0-9]*)(\\*)?\\s*((,)?|(?=[\\n\\)]))",
 					"captures":
 					{
 						"1": {"name": "variable.parameter.function.EEL"},
-						"2": {"name": "punctuation.mark.comma.function.parameter.EEL"}
+						"2": {"name": "variable.parameter.function.namespace.EEL"},
+						"3": {"name": "punctuation.mark.comma.function.parameter.EEL"}
 					},
 				}
 			]

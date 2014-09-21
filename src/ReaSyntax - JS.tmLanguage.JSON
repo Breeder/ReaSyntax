@@ -70,18 +70,6 @@
 			"comment": "Single quote strings"
 		},
 		{
-			"match": "^(((desc:|in_pin:|out_pin:|import\\s*)(.*))|filename:(\\s*(\\d*)(,)(.*))?|(slider([1-5]?\\d)|(6[1-4])):)",
-			"name": "entity.other.attribute-name.jesusonic",
-			"captures":
-			{
-				"4":{"name": "variable.other.jesusonic"},
-				"6":{"name": "constant.numeric.jesusonic"},
-				"7":{"name": "punctuation.mark.jesusonic"},
-				"8":{"name": "variable.other.jesusonic"},
-			},
-			"comment": "Description lines"
-		},
-		{
 			"match": "(((^@)(init|slider|block|sample|serialize|gfx((\\s+\\d*){0,2}))\\b)|(^@.*))|(^\\s*@[^\\s]*)",
 			"name": "entity.name.tag.jesusonic",
 			"captures":
@@ -92,6 +80,108 @@
 				"8":{"name": "invalid.illegal.jesusonic"}
 			},
 			"comment": "Code section titles"
+		},
+		{
+			"begin": "^((slider([1-5]?\\d)|(6[1-4])):)(\\/)(([^:]*)(:))?(([^:]*)(:))?",
+			"beginCaptures":
+			{
+				"1":{"name": "entity.other.attribute-name.jesusonic"},
+				"8":{"name": "keyword.operator.tertiary.jesusonic"},
+				"11":{"name": "keyword.operator.tertiary.jesusonic"},
+			},
+			"end": "\\n",
+			"name": "variable.other.jesusonic",
+			"comment": "Description line (filename)"
+		},
+		{
+			"begin": "^((slider([1-5]?\\d)|(6[1-4])):)",
+			"beginCaptures":
+			{
+				"1": {"name": "entity.other.attribute-name.jesusonic"}
+			},
+			"end": "(>|\\n)\\s*(-)?(.*)",
+			"endCaptures":
+			{
+				"1":{"name": "keyword.operator.logical.jesusonic"},
+				"2":{"name": "keyword.operator.math.jesusonic"},
+			},
+			"name": "variable.other.jesusonic",
+			"patterns":
+			[
+				{
+					"begin": "(\\{)",
+					"beginCaptures":
+					{
+						"1": {"name": "punctuation.mark.braces.jesusonic"}
+					},
+					"end": "(\\})",
+					"endCaptures":
+					{
+						"1": {"name": "punctuation.mark.braces.jesusonic"}
+					},
+					"name": "variable.other.jesusonic",
+					"patterns":
+					[
+						{
+							"match": ",",
+							"name": "punctuation.mark.comma.jesusonic"
+						}
+					]
+				},
+				{
+					"match": ",",
+					"name": "punctuation.mark.comma.jesusonic"
+				},
+				{
+					"match": "\\-",
+					"name": "keyword.operator.math.jesusonic"
+				},
+
+				{
+					"match": "\\d",
+					"name": "constant.numeric.jesusonic"
+				},
+				{
+					"match": "<",
+					"name": "keyword.operator.logical.jesusonic"
+				},
+
+			],
+			"comment": "Description line (slider)"
+		},
+		{
+			"begin": "^(filename:)(\\s*(\\d*)(,))",
+			"beginCaptures":
+			{
+				"1":{"name": "entity.other.attribute-name.jesusonic"},
+				"3":{"name": "constant.numeric.jesusonic"},
+				"4":{"name": "punctuation.mark.comma.jesusonic"},
+			},
+			"end": "\\n",
+			"name": "variable.other.jesusonic",
+			"comment": "Description line (filename)"
+		},
+		{
+			"match": "^(options:)(gmem)?(=)?(.*)",
+			"name": "entity.other.attribute-name.jesusonic",
+			"captures":
+			{
+				"3":{"name": "keyword.operator.math.jesusonic"},
+				"4":{"name": "variable.other.jesusonic"},
+
+			},
+
+			"comment": "Description line (gmem options)"
+		},
+		{
+			"match": "^(desc:|in_pin:|out_pin:|import)(.*)",
+			"name": "entity.other.attribute-name.jesusonic",
+			"captures":
+			{
+				"2":{"name": "variable.other.jesusonic"},
+			},
+
+			"comment": "Description lines"
 		},
 		{
 			"match": "(_global)(\\.)",
@@ -136,7 +226,7 @@
 			"comment": "Functions: user definition"
 		},
 		{
-			"begin": "(global)|(instance)|(local)\\s+(?=s*\\(?)",
+			"begin": "(global)|(instance)|(local)\\s*(?=s*\\(?)",
 			"beginCaptures":
 			{
 				"1": {"name": "storage.modifier.local.jesusonic"},
@@ -217,7 +307,7 @@
 			"comment": "Functions: graphics"
 		},
 		{
-			"match": "(sprintf|match|matchi|(str(_getchar|_setchar|cat|cmp|cpy|cpy_from|cpy_fromslider|cpy_substr|icmp|len|ncat|ncmp|ncpy|nicmp)))(?=(\\s|(\r\n?|\n))*\\()",
+			"match": "(sprintf|printf|match|matchi|(str(_getchar|_setchar|cat|cmp|cpy|cpy_from|cpy_fromslider|cpy_substr|icmp|len|ncat|ncmp|ncpy|nicmp)))(?=(\\s|(\r\n?|\n))*\\()",
 			"name": "support.function.strings.jesusonic",
 			"comment": "Functions: strings"
 		},
@@ -262,7 +352,7 @@
 			"comment": "Variables: PDC"
 		},
 		{
-			"match": "gfx_(a|b|clear|dest|g|h|mode|r|texth|w|x|y)\\b",
+			"match": "gfx_(a|b|clear|dest|ext_retina|g|h|mode|r|texth|w|x|y)\\b",
 			"name": "support.variable.graphics.jesusonic",
 			"comment": "Variables: graphics"
 		},
@@ -302,12 +392,12 @@
 			"captures":
 			{
 				"1":{"name": "punctuation.mark.parentheses.jesusonic"},
-				"2":{"name": "punctuation.mark.braces.jesusonic"},
+				"2":{"name": "punctuation.mark.parentheses.jesusonic"},
 				"3":{"name": "punctuation.mark.braces.jesusonic"},
-				"4":{"name": "punctuation.mark.parentheses.jesusonic"},
+				"4":{"name": "punctuation.mark.braces.jesusonic"},
 				"5":{"name": "punctuation.mark.semicolon.jesusonic"},
 				"6":{"name": "punctuation.mark.comma.jesusonic"},
-				"7":{"name": "punctuation.mark.comma.jesusonic"},
+				"7":{"name": "punctuation.mark.dot.jesusonic"},
 			},
 			"comment": "Miscellaneous punctuation marks"
 		},
@@ -377,11 +467,12 @@
 			"patterns":
 			[
 				{
-					"match": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\s*((,)?|(?=[\\n\\)]))",
+					"match": "\\b([a-zA-Z_][a-zA-Z_0-9]*)(\\*)?\\s*((,)?|(?=[\\n\\)]))",
 					"captures":
 					{
 						"1": {"name": "variable.parameter.function.jesusonic"},
-						"2": {"name": "punctuation.mark.comma.function.parameter.jesusonic"}
+						"2": {"name": "variable.parameter.function.namespace.jesusonic"},
+						"3": {"name": "punctuation.mark.comma.function.parameter.jesusonic"}
 					},
 				}
 			]

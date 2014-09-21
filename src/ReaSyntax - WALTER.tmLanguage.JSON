@@ -71,7 +71,7 @@
 			"comment": "Variables: track specific"
 		},
 		{
-			"match": "(trans_(flag|docked|center))\\b",
+			"match": "(trans_(flags|docked|center))\\b",
 			"name": "support.variable.transport.WALTER",
 			"comment": "Variables: transport specific"
 		},
@@ -125,7 +125,7 @@
 				"3":{"name": "punctuation.mark.braces.WALTER"},
 				"4":{"name": "punctuation.mark.braces.WALTER"},
 				"5":{"name": "punctuation.mark.comma.WALTER"},
-				"6":{"name": "punctuation.mark.comma.WALTER"},
+				"6":{"name": "punctuation.mark.dot.WALTER"},
 			},
 			"comment": "Miscellaneous punctuation marks"
 		},

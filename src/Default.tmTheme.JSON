@@ -76,6 +76,14 @@
 			}
 		},
 		{
+			"name": "Functions: parameter namespace",
+			"scope": "variable.parameter.function.namespace",
+			"settings": {
+				"fontStyle": "italic",
+				"foreground": "#E400FF"
+			}
+		},
+		{
 			"name": "Storage modifier (function, local, instance, global)",
 			"scope": "storage.modifier",
 			"settings": {

@@ -132,7 +132,7 @@
 			<key>comment</key>
 			<string>Variables: transport specific</string>
 			<key>match</key>
-			<string>(trans_(flag|docked|center))\b</string>
+			<string>(trans_(flags|docked|center))\b</string>
 			<key>name</key>
 			<string>support.variable.transport.WALTER</string>
 		</dict>
@@ -231,7 +231,7 @@
 				<key>6</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.mark.comma.WALTER</string>
+					<string>punctuation.mark.dot.WALTER</string>
 				</dict>
 			</dict>
 			<key>comment</key>
