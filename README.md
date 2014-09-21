@@ -18,7 +18,7 @@ ReaSyntax
 
 #### Using git
  * Find your `Packages` directory using the menu item  `Preferences -> Browse Packages...`
- * While inside the `Packages` directory, clone the theme repository using the command: `git clone https://github.com/Breeder/ReaSyntax/ "ReaSyntax"`
+ * While inside the `Packages` directory, clone the repository using the command: `git clone https://github.com/Breeder/ReaSyntax/ "ReaSyntax"`
 
 ## Features
 ##### Syntax for 3 languages found in REAPER:
@@ -29,7 +29,7 @@ ReaSyntax
  * [WALTER](http://www.reaper.fm/sdk/walter/walter.php) - enables definition of visual layout and appearance of objects within REAPER -- currently, it can be used to customize the layout and appearance of the track panels, mixer panels, envelope panels, transport etc...
 
 ##### Auto complete:
-ReaSyntax includes completions for all built-in functions including their parameters (JS and EEL). WALTER completions consist of all possible keywords.
+ReaSyntax includes completions for all built-in functions and their parameters (JS and EEL). WALTER completions consist of all possible keywords.
 
 ##### Additional color schemes:
  * Default - Modification of built-in Monokai Bright made to work a bit better with supplied syntax
