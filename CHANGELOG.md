@@ -1,3 +1,7 @@
+##### v0.1.1 (October 6 2014)
+ * [JS, EEL, WALTER] fixed toggling comments
+ * [EEL] added SetCursorContext() to completion list
+
 ##### v0.1.0 (September 21 2014)
  * [JS, EEL, WALTER] added auto completion for built-in functions (EEL, JS) and keywords (WALTER)
  * [JS, EEL] fixed local/global/instance parameters

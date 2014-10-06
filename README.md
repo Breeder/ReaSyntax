@@ -36,16 +36,16 @@ ReaSyntax includes completions for all built-in functions and their parameters (
  * JS Editor - Replica of the built-in JS Editor found in REAPER
 
 ##### Automatic detection of JS files:
-JS files have no file extension, but ReaSyntax can try to detect JS file directly from the file content. The feature is enabled by default but can be turned off in package settings.
+JS files have no file extension, but ReaSyntax can detect JS file directly from the file content. The feature is enabled by default but can be turned off in package settings.
 
 Open `Preferences -> Package Settings -> ReaSyntax -> Settings - User` and set `"detect_js_file:"` to `true` or `false`.
-For examples go to `Preferences -> Package Settings -> ReaSyntax -> Settings - Default`
+For examples, go to `Preferences -> Package Settings -> ReaSyntax -> Settings - Default`
 
 ##### Automatically load color schemes for each syntax individually:
 Open `Preferences -> Package Settings -> ReaSyntax -> Settings - User` and set `"color_scheme_js"`, `"color_scheme_eel"` or `"color_scheme_walter"` to color scheme you would like to use with that specific syntax.
 If you would like to use currently selected color scheme (in `Preferences -> Color Scheme`) just set those to `null`.
 
-For examples go to `Preferences -> Package Settings -> ReaSyntax -> Settings - Default`
+For examples, go to `Preferences -> Package Settings -> ReaSyntax -> Settings - Default`
 
 ## Screenshots
 * EEL Syntax using Default color scheme:

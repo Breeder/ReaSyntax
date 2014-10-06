@@ -1,0 +1,25 @@
+{
+	"name": "Comments (EEL, JS)",
+	"scope": "source.jesusonic, source.EEL",
+	"settings": {
+		"shellVariables": [
+			{
+				"name": "TM_COMMENT_START",
+				"value": "// "
+			},
+			{
+				"name": "TM_COMMENT_START_2",
+				"value": "/*"
+			},
+			{
+				"name": "TM_COMMENT_END_2",
+				"value": "*/"
+			},
+			{
+				"name": "TM_COMMENT_DISABLE_INDENT_2",
+				"value": "yes"
+			}
+		]
+	},
+	"uuid": "7d481741-8650-45ee-87f6-c4c8fbe21935"
+}

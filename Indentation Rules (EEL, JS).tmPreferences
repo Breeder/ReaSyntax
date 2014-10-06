@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Indentation Rules</string>
+	<string>Indentation Rules (EEL, JS)</string>
 	<key>scope</key>
 	<string>source.jesusonic, source.EEL</string>
 	<key>settings</key>

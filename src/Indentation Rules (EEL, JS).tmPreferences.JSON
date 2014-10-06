@@ -1,0 +1,10 @@
+{
+	"name": "Indentation Rules (EEL, JS)",
+	"scope": "source.jesusonic, source.EEL",
+	"settings": {
+		"decreaseIndentPattern": "^(.*\\*/)?\\s*\\)[;\\s]*$",
+		"increaseIndentPattern": "^.*(\\([^)\"']*)$",
+		"indentParens": true
+	},
+	"uuid": "ee890972-ca9d-4447-a453-f9d5776617eb"
+}

@@ -1,0 +1,13 @@
+{
+	"name": "Comments (WALTER)",
+	"scope": "source.WALTER",
+	"settings": {
+		"shellVariables": [
+			{
+				"name": "TM_COMMENT_START",
+				"value": "; "
+			},
+		]
+	},
+	"uuid": "309d0fae-c506-4f3f-9f69-6bb17e5b9730"
+}
