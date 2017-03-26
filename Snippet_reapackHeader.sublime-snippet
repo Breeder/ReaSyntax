@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[
+-- @description ${TM_FILENAME/(.+)\..+|.*/$1/:name}
+-- @version $1
+-- @author Claudiohbsantos
+-- @link http://claudiohbsantos.com
+-- @date $2
+-- @about
+--   # ${TM_FILENAME/(.+)\..+|.*/$1/:name}
+--   $3
+-- @changelog
+--   - $4
+]]></content>
+	<tabTrigger>cs_reapackHeader</tabTrigger>
+	<scope>source.lua</scope>
+	<description>Reapack Header</description>
+</snippet>
+
