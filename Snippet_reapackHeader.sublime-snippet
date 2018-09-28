@@ -2,8 +2,8 @@
 	<content><![CDATA[
 -- @description ${TM_FILENAME/(.+)\..+|.*/$1/:name}
 -- @version $1
--- @author Claudiohbsantos
--- @link http://claudiohbsantos.com
+-- @author Breeder
+-- @link http://www.paypal.me/Breeder
 -- @date $2
 -- @about
 --   # ${TM_FILENAME/(.+)\..+|.*/$1/:name}
