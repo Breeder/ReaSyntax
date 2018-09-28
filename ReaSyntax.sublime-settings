@@ -1,11 +1,7 @@
 // Never edit this file (it will get overwritten on update) - use for reference only.
 // To edit settings add stuff to "User/ReaSyntax.sublime-settings"
 // For easy access to the file go to Preferences->Package Settings->ReaSyntax->Settings - User
-{	
-	//Set the tab size to 2 and use spaces as inside the Reaper's editor.
-	"tab_size": 2,
-	"translate_tabs_to_spaces": true,
-	
+{
 	// Set colors to use with JS syntax. To disable and use global colors do "color_scheme_js": null
 	"color_scheme_js": "Packages/ReaSyntax/Default.tmTheme",
 
@@ -16,5 +12,17 @@
 	"color_scheme_walter": "Packages/ReaSyntax/Default.tmTheme",
 
 	// JS files have no extension so syntax cannot be deducted purely from filename. Set this to true to detect JS file based on file content
-	"detect_js_file": true
+	"detect_js_file": true,
+
+	// ReaSyntax will offer auto completion of REAPER API for all Lua scripts that reside in these folders (or any of it's sub folders).
+	//
+	// Default setting includes "" so by default, all Lua scripts will auto complete REAPER API. If you want to have auto completion for
+	// REAPER scripts only, simply remove "" from the list and add paths that include only REAPER Lua scripts. To turn this feature off
+	// completely do "lua_scripts_folder": null or just leave the list empty like this "lua_scripts_folder": []
+	"lua_scripts_folders":
+	[
+		"",
+		"C:/Users/User/AppData/Roaming/REAPER/Scripts",
+		"C:/Program Files/REAPER (x64)",
+	],
 }

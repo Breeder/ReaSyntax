@@ -2,12 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>name</key>
+	<string>EEL (REAPER)</string>
+	<key>scopeName</key>
+	<string>source.EEL</string>
 	<key>fileTypes</key>
 	<array>
 		<string>eel</string>
 	</array>
-	<key>name</key>
-	<string>EEL (REAPER)</string>
+	<key>word_separators</key>
+	<string>./\()"'-:,.;&lt;&gt;~!@#%^&amp;*|+=[]{}`~?</string>
 	<key>patterns</key>
 	<array>
 		<dict>
@@ -21,8 +25,6 @@
 					<string>punctuation.definition.comment.EEL</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Comment: single line</string>
 			<key>end</key>
 			<string>$\n?</string>
 			<key>name</key>
@@ -36,6 +38,8 @@
 					<string>punctuation.separator.continuation.EEL</string>
 				</dict>
 			</array>
+			<key>comment</key>
+			<string>Comment: single line</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -48,12 +52,12 @@
 					<string>punctuation.definition.comment.EEL</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Comment: block</string>
 			<key>end</key>
 			<string>\*/</string>
 			<key>name</key>
 			<string>comment.block.EEL</string>
+			<key>comment</key>
+			<string>Comment: block</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -66,8 +70,6 @@
 					<string>punctuation.definition.string.begin.EEL</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Double quote strings</string>
 			<key>end</key>
 			<string>"</string>
 			<key>endCaptures</key>
@@ -91,6 +93,8 @@
 					<string>#string_placeholder</string>
 				</dict>
 			</array>
+			<key>comment</key>
+			<string>Double quote strings</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -103,8 +107,6 @@
 					<string>punctuation.definition.string.begin.EEL</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Single quote strings</string>
 			<key>end</key>
 			<string>'</string>
 			<key>endCaptures</key>
@@ -124,8 +126,14 @@
 					<string>#string_escaped_char</string>
 				</dict>
 			</array>
+			<key>comment</key>
+			<string>Single quote strings</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>^(import)(\s.*)</string>
+			<key>name</key>
+			<string>entity.other.attribute-name.EEL</string>
 			<key>captures</key>
 			<dict>
 				<key>2</key>
@@ -136,10 +144,6 @@
 			</dict>
 			<key>comment</key>
 			<string>Description line</string>
-			<key>match</key>
-			<string>^(import)(\s.*)</string>
-			<key>name</key>
-			<string>entity.other.attribute-name.EEL</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -152,8 +156,6 @@
 					<string>storage.modifier.function.EEL</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Functions: user definition</string>
 			<key>end</key>
 			<string>(\))</string>
 			<key>endCaptures</key>
@@ -182,6 +184,8 @@
 					<key>patterns</key>
 					<array>
 						<dict>
+							<key>match</key>
+							<string>\b([a-zA-Z_][a-zA-Z_0-9]*)\s*(?:(,)|(?=[\n\)]))</string>
 							<key>captures</key>
 							<dict>
 								<key>1</key>
@@ -190,12 +194,12 @@
 									<string>entity.name.function.EEL</string>
 								</dict>
 							</dict>
-							<key>match</key>
-							<string>\b([a-zA-Z_][a-zA-Z_0-9]*)\s*(?:(,)|(?=[\n\)]))</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
+			<key>comment</key>
+			<string>Functions: user definition</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -218,8 +222,6 @@
 					<string>storage.modifier.instance.EEL</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Functions: modifiers</string>
 			<key>end</key>
 			<string>(\))</string>
 			<key>endCaptures</key>
@@ -239,190 +241,196 @@
 					<string>#function_parameters</string>
 				</dict>
 			</array>
+			<key>comment</key>
+			<string>Functions: modifiers</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Variable: language</string>
 			<key>match</key>
 			<string>this</string>
 			<key>name</key>
 			<string>variable.language.this.EEL</string>
+			<key>comment</key>
+			<string>Variable: language</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Control: looping</string>
 			<key>match</key>
 			<string>(loop|while)</string>
 			<key>name</key>
 			<string>keyword.control.loop.EEL</string>
+			<key>comment</key>
+			<string>Control: looping</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Functions: basic math</string>
 			<key>match</key>
 			<string>(abs|acos|asin|atan|atan2|ceil|cos|exp|floor|invsqrt|log|log10|max|min|rand|sign|sin|spl|sqr|sqrt|tan)(?=(\s|(
 ?|
 ))*\()</string>
 			<key>name</key>
 			<string>support.function.math.EEL</string>
+			<key>comment</key>
+			<string>Functions: basic math</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Functions: fft</string>
 			<key>match</key>
-			<string>(convolve_c|fft|fft_ipermute|fft_permute|ifft)(?=(\s|(
+			<string>(convolve_c|fft|fft_ipermute|fft_real|fft_permute|ifft|ifft_real)(?=(\s|(
 ?|
 ))*\()</string>
 			<key>name</key>
 			<string>support.function.fft.EEL</string>
+			<key>comment</key>
+			<string>Functions: fft</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Functions: memory</string>
 			<key>match</key>
-			<string>(freembuf|memcpy|memset)(?=(\s|(
+			<string>(freembuf|memcpy|memset|mem_get_values|mem_set_values|__memtop)(?=(\s|(
 ?|
 ))*\()</string>
 			<key>name</key>
 			<string>support.function.memory.EEL</string>
+			<key>comment</key>
+			<string>Functions: memory</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Functions: stack</string>
 			<key>match</key>
 			<string>((stack_)(exch|peek|pop|push))(?=(\s|(
 ?|
 ))*\()</string>
 			<key>name</key>
 			<string>support.function.stack.EEL</string>
+			<key>comment</key>
+			<string>Functions: stack</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Functions: file</string>
 			<key>match</key>
 			<string>(f(close|eof|flush|getc|gets|open|printf|read|seek|tell|write))(?=(\s|(
 ?|
 ))*\()</string>
 			<key>name</key>
 			<string>support.function.file.EEL</string>
+			<key>comment</key>
+			<string>Functions: file</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Functions: graphics</string>
 			<key>match</key>
-			<string>(gfx_(arc|blit|blitext|blurto|circle|deltablit|drawchar|drawnumber|drawstr|getchar|getfont|getimgdim|getpixel|gradrect|line|lineto|loadimg|measurestr|muladdrect|printf|quit|rect|rectto|roundrect|setfont|setimgdim|setpixel|transformblit|update))(?=(\s|(
+			<string>(gfx_(arc|blit|blitext|blurto|circle|clienttoscreen|deltablit|dock|drawchar|drawnumber|drawstr|getchar|getdropfile|getfont|getimgdim|getpixel|gradrect|init|line|lineto|loadimg|measurechar|measurestr|muladdrect|printf|quit|rect|rectto|roundrect|screentoclient|set|setcursor|setfont|setimgdim|setpixel|showmenu|transformblit|triangle|update))(?=(\s|(
 ?|
 ))*\()</string>
 			<key>name</key>
 			<string>support.function.graphics.EEL</string>
+			<key>comment</key>
+			<string>Functions: graphics</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Functions: strings</string>
 			<key>match</key>
 			<string>(sprintf|printf|match|matchi|(str(_delsub|_insert|_getchar|_setchar|_setlen|cat|cmp|cpy|cpy_from|cpy_substr|icmp|len|ncat|ncmp|ncpy|nicmp)))(?=(\s|(
 ?|
 ))*\()</string>
 			<key>name</key>
 			<string>support.function.strings.EEL</string>
+			<key>comment</key>
+			<string>Functions: strings</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Functions: tcp</string>
 			<key>match</key>
 			<string>(tcp_(close|connect|listen|listen_end|recv|send|set_block))(?=(\s|(
 ?|
 ))*\()</string>
 			<key>name</key>
 			<string>support.function.tcp.EEL</string>
+			<key>comment</key>
+			<string>Functions: tcp</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Functions: time</string>
 			<key>match</key>
 			<string>(time|time_precise)(?=(\s|(
 ?|
 ))*\()</string>
 			<key>name</key>
 			<string>support.function.time.EEL</string>
+			<key>comment</key>
+			<string>Functions: time</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Functions: misc</string>
 			<key>match</key>
-			<string>(atexit|eval|defer|sleep)(?=(\s|(
+			<string>(atexit|eval|defer|sleep|get_action_context)(?=(\s|(
 ?|
 ))*\()</string>
 			<key>name</key>
 			<string>support.function.misc.EEL</string>
+			<key>comment</key>
+			<string>Functions: misc</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Functions: other</string>
 			<key>match</key>
 			<string>[a-zA-Z_][a-zA-Z_0-9]*\b(?=(\s|(
 ?|
 ))*\()</string>
 			<key>name</key>
 			<string>support.function.other.EEL</string>
+			<key>comment</key>
+			<string>Functions: other</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Variables: graphics</string>
 			<key>match</key>
-			<string>gfx_(a|b|clear|dest|g|h|mode|r|texth|w|x|y)\b</string>
+			<string>gfx_(a|b|clear|dest|ext_retina|g|h|mode|r|texth|w|x|y)\b</string>
 			<key>name</key>
 			<string>support.variable.graphics.EEL</string>
+			<key>comment</key>
+			<string>Variables: graphics</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Variables: mouse</string>
 			<key>match</key>
 			<string>mouse_(cap|hwheel|wheel|x|y)\b</string>
 			<key>name</key>
 			<string>support.variable.mouse.EEL</string>
+			<key>comment</key>
+			<string>Variables: mouse</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Operators: logical</string>
 			<key>match</key>
 			<string>===|!==|==|!=|&gt;=|&lt;=|&amp;&amp;|!|(?&lt;!&gt;)&gt;(?!&gt;)|(?&lt;!&lt;)&lt;(?!&lt;)|\|\|</string>
 			<key>name</key>
 			<string>keyword.operator.logical.EEL</string>
+			<key>comment</key>
+			<string>Operators: logical</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Operators: bitwise</string>
 			<key>match</key>
 			<string>&amp;=|~=|\|=|&lt;&lt;|&gt;&gt;|&amp;|~|\|</string>
 			<key>name</key>
 			<string>keyword.operator.bitwise.EEL</string>
+			<key>comment</key>
+			<string>Operators: bitwise</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Operators: math</string>
 			<key>match</key>
 			<string>\*=|\/=|%=|\^=|\+=|\-=|\*|\/|%|\^|\+|\-|=</string>
 			<key>name</key>
 			<string>keyword.operator.math.EEL</string>
+			<key>comment</key>
+			<string>Operators: math</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Operators: tertiary</string>
 			<key>match</key>
 			<string>\?|:</string>
 			<key>name</key>
 			<string>keyword.operator.tertiary.EEL</string>
+			<key>comment</key>
+			<string>Operators: tertiary</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Operators: array brackets</string>
 			<key>match</key>
 			<string>\[|\]</string>
 			<key>name</key>
 			<string>keyword.operator.array.EEL</string>
+			<key>comment</key>
+			<string>Operators: array brackets</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>(\()|(\))|(\{)|(\})|(;)|(,)|(\.)</string>
+			<key>name</key>
+			<string>punctuation.mark.EEL</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -463,12 +471,12 @@
 			</dict>
 			<key>comment</key>
 			<string>Miscellaneous punctuation marks</string>
-			<key>match</key>
-			<string>(\()|(\))|(\{)|(\})|(;)|(,)|(\.)</string>
-			<key>name</key>
-			<string>punctuation.mark.EEL</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>((\$|0)(x|X)[0-9a-fA-F]*)|([0-9]+(\.)?[0-9]*)|(\$'.')|(\$~\d)|(\$pi)</string>
+			<key>name</key>
+			<string>constant.numeric.EEL</string>
 			<key>captures</key>
 			<dict>
 				<key>5</key>
@@ -479,12 +487,12 @@
 			</dict>
 			<key>comment</key>
 			<string>Hex and decimal numbers, ASCII values, bit masks, PI</string>
-			<key>match</key>
-			<string>((\$|0)(x|X)[0-9a-fA-F]*)|([0-9]+(\.)?[0-9]*)|(\$'.')|(\$~\d)|(\$pi)</string>
-			<key>name</key>
-			<string>constant.numeric.EEL</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>(#)([a-zA-Z_][a-zA-Z_0-9]*\b)?</string>
+			<key>name</key>
+			<string>variable.parameter.string.EEL</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -495,64 +503,18 @@
 			</dict>
 			<key>comment</key>
 			<string>User variables: named/temporary string</string>
-			<key>match</key>
-			<string>(#)([a-zA-Z_][a-zA-Z_0-9]*\b)?</string>
-			<key>name</key>
-			<string>variable.parameter.string.EEL</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>User variables</string>
 			<key>match</key>
 			<string>[a-zA-Z_][a-zA-Z_0-9]*\b</string>
 			<key>name</key>
 			<string>variable.other.EEL</string>
+			<key>comment</key>
+			<string>User variables</string>
 		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>function_parameters</key>
-		<dict>
-			<key>begin</key>
-			<string>(\()</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.mark.parentheses.function.definition.EEL</string>
-				</dict>
-			</dict>
-			<key>contentName</key>
-			<string>meta.function.parameters.EEL</string>
-			<key>end</key>
-			<string>(?=\)\s*)</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>variable.parameter.function.EEL</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>variable.parameter.function.namespace.EEL</string>
-						</dict>
-						<key>3</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.mark.comma.function.parameter.EEL</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>\b([a-zA-Z_][a-zA-Z_0-9]*)(\*)?\s*((,)?|(?=[\n\)]))</string>
-				</dict>
-			</array>
-		</dict>
 		<key>string_escaped_char</key>
 		<dict>
 			<key>patterns</key>
@@ -597,12 +559,50 @@
 				</dict>
 			</array>
 		</dict>
+		<key>function_parameters</key>
+		<dict>
+			<key>begin</key>
+			<string>(\()</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.mark.parentheses.function.definition.EEL</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>meta.function.parameters.EEL</string>
+			<key>end</key>
+			<string>(?=\)\s*)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\b([a-zA-Z_][a-zA-Z_0-9]*)(\*)?\s*((,)?|(?=[\n\)]))</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>variable.parameter.function.EEL</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>variable.parameter.function.namespace.EEL</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.mark.comma.function.parameter.EEL</string>
+						</dict>
+					</dict>
+				</dict>
+			</array>
+		</dict>
 	</dict>
-	<key>scopeName</key>
-	<string>source.EEL</string>
 	<key>uuid</key>
 	<string>2efcdf21-8674-4191-a64f-6a9c26cfdc98</string>
-	<key>word_separators</key>
-	<string>./\()"'-:,.;&lt;&gt;~!@#%^&amp;*|+=[]{}`~?</string>
 </dict>
 </plist>

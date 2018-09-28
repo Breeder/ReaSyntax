@@ -3,6 +3,9 @@
 
 	"completions":
 	[
+		{ "trigger": "__memtop", "contents": "__memtop()" },
+		{ "trigger": "__denormal_likely", "contents": "__denormal_likely()" },
+		{ "trigger": "__denormal_unlikely", "contents": "__denormal_unlikely()" },
 		{ "trigger": "abs", "contents": "abs(${1:value})" },
 		{ "trigger": "acos", "contents": "acos(${1:value})" },
 		{ "trigger": "asin", "contents": "asin(${1:value})" },
@@ -14,11 +17,17 @@
 		{ "trigger": "atomic_set", "contents": "atomic_set(${1:dest_val1}, ${2:val2})" },
 		{ "trigger": "atomic_setifequal", "contents": "atomic_setifequal(${1:dest}, ${2:value}, ${3:newvalue})" },
 		{ "trigger": "ceil", "contents": "ceil(${1:value})" },
-		{ "trigger": "convolve_c", "contents": "convolve_c()" },
+		{ "trigger": "convolve_c", "contents": "convolve_c(${1:dest}, ${2:src}, ${3:size})" },
 		{ "trigger": "cos", "contents": "cos(${1:angle})" },
 		{ "trigger": "exp", "contents": "exp(${1:exponent})" },
+		{ "trigger": "export_buffer_to_project", "contents": "export_buffer_to_project(${1:buffer}, ${2:length}, ${3:nch}, ${4:samplerate}, ${5:track_idx}, ${6:flags}, ${7:tempo})" },
 		{ "trigger": "fft", "contents": "fft(${1:buffer}, ${2:size})" },
 		{ "trigger": "fft_ipermute", "contents": "fft_ipermute(${1:buffer}, ${2:size})" },
+
+		{ "trigger": "fft_real", "contents": "fft_real(${1:buffer}, ${2:size})" },
+		{ "trigger": "ifft_real ", "contents": "ifft_real (${1:buffer}, ${2:size})" },
+
+
 		{ "trigger": "fft_permute", "contents": "fft_permute(${1:buffer}, ${2:size})" },
 		{ "trigger": "file_avail", "contents": "file_avail(${1:handle})" },
 		{ "trigger": "file_close", "contents": "file_close(${1:handle})" },
@@ -69,6 +78,8 @@
 		{ "trigger": "mdct", "contents": "mdct(${1:buffer}, ${2:size})" },
 		{ "trigger": "memcpy", "contents": "memcpy(${1:dest}, ${2:src}, ${3:length})" },
 		{ "trigger": "memset", "contents": "memset(${1:offset}, ${2:value}, ${3:length})" },
+		{ "trigger": "mem_get_values", "contents": "mem_get_values(${1:offset}, ${2:...})" },
+		{ "trigger": "mem_set_values", "contents": "mem_set_values(${1:offset}, ${2:...})" },
 		{ "trigger": "midirecv", "contents": "midirecv(${1:offset}, ${2:msg1}, ${3:msg2}, ${4:msg3})" },
 		{ "trigger": "midirecv_buf", "contents": "midirecv_buf(${1:offset}, ${2:buf}, ${3:len})" },
 		{ "trigger": "midirecv_str", "contents": "midirecv_str(${1:offset}, ${2:string})" },

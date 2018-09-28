@@ -148,12 +148,12 @@
 			"comment": "Functions: basic math"
 		},
 		{
-			"match": "(convolve_c|fft|fft_ipermute|fft_permute|ifft)(?=(\\s|(\r\n?|\n))*\\()",
+			"match": "(convolve_c|fft|fft_ipermute|fft_real|fft_permute|ifft|ifft_real)(?=(\\s|(\r\n?|\n))*\\()",
 			"name": "support.function.fft.EEL",
 			"comment": "Functions: fft"
 		},
 		{
-			"match": "(freembuf|memcpy|memset)(?=(\\s|(\r\n?|\n))*\\()",
+			"match": "(freembuf|memcpy|memset|mem_get_values|mem_set_values|__memtop)(?=(\\s|(\r\n?|\n))*\\()",
 			"name": "support.function.memory.EEL",
 			"comment": "Functions: memory"
 		},
@@ -168,7 +168,7 @@
 			"comment": "Functions: file"
 		},
 		{
-			"match": "(gfx_(arc|blit|blitext|blurto|circle|deltablit|drawchar|drawnumber|drawstr|getchar|getfont|getimgdim|getpixel|gradrect|line|lineto|loadimg|measurestr|muladdrect|printf|quit|rect|rectto|roundrect|setfont|setimgdim|setpixel|transformblit|update))(?=(\\s|(\r\n?|\n))*\\()",
+			"match": "(gfx_(arc|blit|blitext|blurto|circle|clienttoscreen|deltablit|dock|drawchar|drawnumber|drawstr|getchar|getdropfile|getfont|getimgdim|getpixel|gradrect|init|line|lineto|loadimg|measurechar|measurestr|muladdrect|printf|quit|rect|rectto|roundrect|screentoclient|set|setcursor|setfont|setimgdim|setpixel|showmenu|transformblit|triangle|update))(?=(\\s|(\r\n?|\n))*\\()",
 			"name": "support.function.graphics.EEL",
 			"comment": "Functions: graphics"
 		},
@@ -188,7 +188,7 @@
 			"comment": "Functions: time"
 		},
 		{
-			"match": "(atexit|eval|defer|sleep)(?=(\\s|(\r\n?|\n))*\\()",
+			"match": "(atexit|eval|defer|sleep|get_action_context)(?=(\\s|(\r\n?|\n))*\\()",
 			"name": "support.function.misc.EEL",
 			"comment": "Functions: misc"
 		},
@@ -198,7 +198,7 @@
 			"comment": "Functions: other"
 		},
 		{
-			"match": "gfx_(a|b|clear|dest|g|h|mode|r|texth|w|x|y)\\b",
+			"match": "gfx_(a|b|clear|dest|ext_retina|g|h|mode|r|texth|w|x|y)\\b",
 			"name": "support.variable.graphics.EEL",
 			"comment": "Variables: graphics"
 		},

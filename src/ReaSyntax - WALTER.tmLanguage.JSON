@@ -48,7 +48,7 @@
 			"comment": "Single quote strings"
 		},
 		{
-			"match": "(((gen_)(pan_zeroline|vol_zeroline))|((mcp_)(altmeterpos|master_voltext_flags|mastervupeakheight|min_height|pan_zeroline|showborders|vol_zeroline|voltext_flags|vupeakheight))|((tcp_)(folderindent|heights|margin|master_voltext_flags|pan_zeroline|showborders|vol_zeroline|voltext_flags|vupeakwidth))|((use_)(overlays|pngs))|(item_volknobfg|trans_speed_zeroline|transport_showborders))((\\s*([0-9a-fA-F]*))*)\\b",
+			"match": "(((gen_)(pan_zeroline|vol_zeroline))|((mcp_)(altmeterpos|master_voltext_flags|mastervupeakheight|min_height|pan_zeroline|showborders|vol_zeroline|voltext_flags|vupeakheight))|((tcp_)(folderindent|heights|margin|master_voltext_flags|pan_zeroline|showborders|vol_zeroline|voltext_flags|vupeakwidth))|((use_)(overlays|pngs))|(item_volknobfg|trans_speed_zeroline|transport_showborders|version|tinttcp|peaksedges|global_scale))((\\s*([0-9a-fA-F]*))*)\\b",
 			"name": "entity.other.attribute-name.WALTER",
 			"captures":
 			{
@@ -106,7 +106,7 @@
 			"comment": "Operators: bitwise"
 		},
 		{
-			"match": "\\+:|\\*:|\\*|\\+|:",
+			"match": "\\+:|\\*:|\\-:|\\/:|\\+|\\*|\\-|\\/|:",
 			"name": "keyword.operator.combinators.WALTER",
 			"comment": "Operators: math"
 		},

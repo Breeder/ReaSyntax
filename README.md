@@ -1,7 +1,7 @@
 ReaSyntax
 =========
 
-[Sublime text](http://www.sublimetext.com/3) syntax package for scripting languages found in [Cockos REAPER](http://www.reaper.fm/): Jesusonic/EEL/WALTER
+[Sublime text](http://www.sublimetext.com/3) syntax package for scripting languages found in [Cockos REAPER](http://www.reaper.fm/): Jesusonic/EEL/LUA/WALTER
 
 A lot of effort has been invested in this. If you seriously use it, please consider [supporting the developer :heart::heart::heart:](http://www.paypal.me/ReaBreeder)
 
@@ -28,12 +28,14 @@ A lot of effort has been invested in this. If you seriously use it, please consi
 ##### Syntax for 3 languages found in REAPER:
  * [JS](http://www.reaper.fm/sdk/js/js.php) - scripting language which is compiled on the fly and allows you to modify and/or generate audio and MIDI, as well as draw custom vector based UI and analysis displays.
 
- * [ReaScript/EEL](http://www.reaper.fm/sdk/reascript/reascript.php) - REAPER lets you use both [Python](https://www.python.org/) and its own language EEL to create scripts that can call any action and use most of the API functions. EEL looks a lot like JS _(good part of JS reference is valid for EEL)_ and is implemented natively in REAPER so there are no dependencies to run EEL scripts. It also appears to run somewhat faster than Python.
+ * [ReaScript/EEL](http://www.reaper.fm/sdk/reascript/reascript.php) - REAPER lets you use both [Python](https://www.python.org/), [Lua](https://www.lua.org/about.html) and its own language EEL to create scripts that can call any action and use most of the API functions. EEL looks a lot like JS _(good part of JS reference is valid for EEL)_ and is implemented natively in REAPER so there are no dependencies to run EEL scripts. It also appears to run somewhat faster than Python.
 
+ * [ReaScript/Lua](http://www.reaper.fm/sdk/reascript/reascript.php) - Sublime Text has all the syntax needed for Lua scripts but ReaSyntax adds a secret sauce - auto complete for REAPER API! Do less documentation study and more coding!
+ 
  * [WALTER](http://www.reaper.fm/sdk/walter/walter.php) - enables definition of visual layout and appearance of objects within REAPER -- currently, it can be used to customize the layout and appearance of the track panels, mixer panels, envelope panels, transport etc...
 
 ##### Auto complete:
-ReaSyntax includes completions for all built-in functions and their parameters (JS and EEL). WALTER completions consist of all possible keywords.
+ReaSyntax includes completions for all built-in functions and their parameters (JS, EEL, LUA). WALTER completions consist of all possible keywords.
 
 ##### Additional color schemes:
  * Default - Modification of built-in Monokai Bright made to work a bit better with supplied syntax

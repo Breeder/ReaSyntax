@@ -170,7 +170,6 @@
 				"4":{"name": "variable.other.jesusonic"},
 
 			},
-
 			"comment": "Description line (gmem options)"
 		},
 		{
@@ -180,7 +179,6 @@
 			{
 				"2":{"name": "variable.other.jesusonic"},
 			},
-
 			"comment": "Description lines"
 		},
 		{
@@ -272,12 +270,12 @@
 			"comment": "Functions: sample access"
 		},
 		{
-			"match": "(convolve_c|fft|fft_ipermute|fft_permute|ifft|imdct|mdct)(?=(\\s|(\r\n?|\n))*\\()",
+			"match": "(convolve_c|fft|fft_ipermute|fft_permute|fft_real|ifft|ifft_real|imdct|mdct)(?=(\\s|(\r\n?|\n))*\\()",
 			"name": "support.function.fft.jesusonic",
 			"comment": "Functions: fft"
 		},
 		{
-			"match": "(freembuf|memcpy|memset)(?=(\\s|(\r\n?|\n))*\\()",
+			"match": "(freembuf|memcpy|memset|mem_get_values|mem_set_values|__memtop)(?=(\\s|(\r\n?|\n))*\\()",
 			"name": "support.function.memory.jesusonic",
 			"comment": "Functions: memory"
 		},
@@ -302,7 +300,7 @@
 			"comment": "Functions: file"
 		},
 		{
-			"match": "(gfx_(arc|blit|blitext|blurto|circle|deltablit|drawchar|drawnumber|drawstr|getchar|getfont|getimgdim|getpixel|gradrect|line|lineto|loadimg|measurestr|muladdrect|printf|rect|rectto|roundrect|setfont|setimgdim|setpixel|transformblit))(?=(\\s|(\r\n?|\n))*\\()",
+			"match": "(gfx_(arc|blit|blitext|blurto|circle|clienttoscreen|deltablit|dock|drawchar|drawnumber|drawstr|getchar|getdropfile|getfont|getimgdim|getpixel|gradrect|init|line|lineto|loadimg|measurechar|measurestr|muladdrect|printf|quit|rect|rectto|roundrect|screentoclient|set|setcursor|setfont|setimgdim|setpixel|showmenu|transformblit|triangle|update))(?=(\\s|(\r\n?|\n))*\\()",
 			"name": "support.function.graphics.jesusonic",
 			"comment": "Functions: graphics"
 		},
@@ -315,6 +313,11 @@
 			"match": "(time|time_precise)(?=(\\s|(\r\n?|\n))*\\()",
 			"name": "support.function.time.jesusonic",
 			"comment": "Functions: time"
+		},
+		{
+			"match": "(__denormal_likely|__denormal_unlikely)(?=(\\s|(\r\n?|\n))*\\()",
+			"name": "support.function.metafunction.jesusonic",
+			"comment": "Functions: Metafunctions to hint for optimization"
 		},
 		{
 			"match": "[a-zA-Z_][a-zA-Z_0-9]*\\b(?=(\\s|(\r\n?|\n))*\\()",
