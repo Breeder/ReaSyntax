@@ -13,16 +13,4 @@
 
 	// JS files have no extension so syntax cannot be deducted purely from filename. Set this to true to detect JS file based on file content
 	"detect_js_file": true,
-
-	// ReaSyntax will offer auto completion of REAPER API for all Lua scripts that reside in these folders (or any of it's sub folders).
-	//
-	// Default setting includes "" so by default, all Lua scripts will auto complete REAPER API. If you want to have auto completion for
-	// REAPER scripts only, simply remove "" from the list and add paths that include only REAPER Lua scripts. To turn this feature off
-	// completely do "lua_scripts_folder": null or just leave the list empty like this "lua_scripts_folder": []
-	"lua_scripts_folders":
-	[
-		"",
-		"C:/Users/User/AppData/Roaming/REAPER/Scripts",
-		"C:/Program Files/REAPER (x64)",
-	],
 }

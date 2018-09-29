@@ -374,10 +374,15 @@ def CreateLuaCompletions (apiFunctionList, filePath):
 			contentsStr += "${" + str(j) + ":" + parameter + "}"
 		contentsStr += ")"
 
-		f.write("\t\t[")
-		f.write("\""  + triggerStr  + "\", ")
-		f.write("\"" + contentsStr + "\"")
-		f.write("],\n")
+		#f.write("\t\t[")
+		#f.write("\""  + triggerStr  + "\", ")
+		#f.write("\"" + contentsStr + "\"")
+		#f.write("],\n")
+
+		f.write("\t\t{")
+		f.write("\"trigger\": \""  + triggerStr  + "\", ")
+		f.write("\"contents\": \"" + contentsStr + "\"")
+		f.write("},\n")
 
 	f.write("]\n}")
 	f.close()
@@ -390,4 +395,4 @@ pyFuncs  = []
 
 SaveApi(cFuncs, eelFuncs, luaFuncs, pyFuncs)
 CreateEelCompletions(eelFuncs, TARGET_FOLDER + "ReaSyntax - EEL.sublime-completions")
-CreateLuaCompletions(luaFuncs, TARGET_FOLDER + "ReaSyntax - Lua completions.sublime-settings")
+CreateLuaCompletions(luaFuncs, TARGET_FOLDER + "ReaSyntax - Lua.sublime-completions")# completions.sublime-settings")

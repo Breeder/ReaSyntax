@@ -55,12 +55,12 @@ class ReaSyntax:
 		ReaSyntax.detectJs = cls.settings.get("detect_js_file", True)
 
 		# Load Lua completions and paths for files which should have auto completions
-		ReaSyntax.luaScriptsPath = cls.settings.get("lua_scripts_folders", None)
-		ReaSyntax.luaScriptsPath = None if (ReaSyntax.luaScriptsPath is not None and len(ReaSyntax.luaScriptsPath) <= 0) else ReaSyntax.luaScriptsPath
-		del ReaSyntax.luaCompletions[:]
-		if ReaSyntax.luaScriptsPath is not None:
-			ReaSyntax.luaScriptsPath = [""] if ("" in ReaSyntax.luaScriptsPath) else ReaSyntax.luaScriptsPath
-			ReaSyntax.luaCompletions = cls.settingsLua.get("completions", [])
+#		ReaSyntax.luaScriptsPath = cls.settings.get("lua_scripts_folders", None)
+#		ReaSyntax.luaScriptsPath = None if (ReaSyntax.luaScriptsPath is not None and len(ReaSyntax.luaScriptsPath) <= 0) else ReaSyntax.luaScriptsPath
+#		del ReaSyntax.luaCompletions[:]
+#		if ReaSyntax.luaScriptsPath is not None:
+#			ReaSyntax.luaScriptsPath = [""] if ("" in ReaSyntax.luaScriptsPath) else ReaSyntax.luaScriptsPath
+#			ReaSyntax.luaCompletions = cls.settingsLua.get("completions", [])
 
 		# Load Python completions and paths for files which should have auto completions
 		#ReaSyntax.pythonScriptsPath = cls.settings.get("python_scripts_folders", None)
@@ -82,45 +82,43 @@ class ReaSyntax:
 				sublime.load_settings(syntax).erase("color_scheme")
 			sublime.save_settings(syntax)
 
-	@classmethod
-	def GetCompletions (cls, filePath):
+#	@classmethod
+#	def GetCompletions (cls, filePath):
+#		completions = []
 
-		completions = []
+#		# We cache last requested file path and completion file to skip checks for every call
+#		if ReaSyntax.lastCheckedCompletionsFile is not None and ReaSyntax.lastCheckedCompletionsFile == filePath:
+#			completions = ReaSyntax.lastUsedCompletions
+#		else:
 
-		# We cache last requested file path and completion file to skip checks for every call
-		if ReaSyntax.lastCheckedCompletionsFile is not None and ReaSyntax.lastCheckedCompletionsFile == filePath:
-			completions = ReaSyntax.lastUsedCompletions
-		else:
+#			# Save this file path as last checked before converting it to real path
+#			ReaSyntax.lastCheckedCompletionsFile = filePath
+#			filePath = os.path.realpath(filePath)
 
-			# Save this file path as last checked before converting it to real path
-			ReaSyntax.lastCheckedCompletionsFile = filePath
-			filePath = os.path.realpath(filePath)
+#			# Get correct path and completions list for current file type
+#			fileType  = ntpath.splitext(filePath)[1]
+#			pathsList = None
+#			if   fileType == ".lua": pathsList = ReaSyntax.luaScriptsPath;    completions = ReaSyntax.luaCompletions
+#			#elif fileType == ".py":  pathsList = ReaSyntax.pythonScriptsPath; completions = ReaSyntax.pythonCompletions
 
-			# Get correct path and completions list for current file type
-			fileType  = ntpath.splitext(filePath)[1]
-			pathsList = None
-			if   fileType == ".lua": pathsList = ReaSyntax.luaScriptsPath;    completions = ReaSyntax.luaCompletions
-			#elif fileType == ".py":  pathsList = ReaSyntax.pythonScriptsPath; completions = ReaSyntax.pythonCompletions
+#			# Search for current file path in list of allowable paths
+#			pathFound = False
+#			if pathsList is not None:
+#				if ("" in pathsList):
+#					pathFound = True
+#				else:
+#					for path in pathsList:
+#						currentPath = os.path.join(os.path.realpath(path), '')
+#						if os.path.commonprefix([currentPath, filePath]) == currentPath:
+#							pathFound = True
+#							break
+#			if not pathFound:
+#				completions = []
 
-			# Search for current file path in list of allowable paths
-			pathFound = False
-			if pathsList is not None:
-				if ("" in pathsList):
-					pathFound = True
-				else:
-					for path in pathsList:
-						currentPath = os.path.join(os.path.realpath(path), '')
-						if os.path.commonprefix([currentPath, filePath]) == currentPath:
-							pathFound = True
-							break
-			if not pathFound:
-				completions = []
+#			# Cache last detected completions
+#			ReaSyntax.lastUsedCompletions = completions
 
-			# Cache last detected completions
-			ReaSyntax.lastUsedCompletions = completions
-
-		return completions
-
+#		return completions
 
 # ---------------------------------------------------------------------------------------------------------------------
 class EventDump (sublime_plugin.EventListener):
