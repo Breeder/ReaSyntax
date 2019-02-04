@@ -1,3 +1,6 @@
+##### v0.2.2 (February 04 2018)
+ * [Lua, EEL] Updated completions to match REAPER 5.965, SWS 2.10.0, ReaPack 1.2.1 and js_ReaScriptAPI 0.963
+
 ##### v0.2.1 (September 29 2018)
  * [Lua] Due to bug in Sublime Text API, when using Lua completions, words in current file weren't auto-completed.
          So instead of working on specific folders, auto complete works on all Lua scripts. If you don't want
