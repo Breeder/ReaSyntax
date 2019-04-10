@@ -1,7 +1,7 @@
 {
 	"name": "JS (REAPER)",
 	"scopeName": "source.jesusonic",
-	"fileTypes": ["jsfx-inc"],
+	"fileTypes": ["jsfx-inc" , "jsfx"],
 	"word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?",
 	"patterns":
 	[

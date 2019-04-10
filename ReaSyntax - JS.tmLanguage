@@ -9,6 +9,7 @@
 	<key>fileTypes</key>
 	<array>
 		<string>jsfx-inc</string>
+		<string>jsfx</string>
 	</array>
 	<key>word_separators</key>
 	<string>./\()"'-:,.;&lt;&gt;~!@#%^&amp;*|+=[]{}`~?</string>
