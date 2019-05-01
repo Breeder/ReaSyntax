@@ -2,9 +2,18 @@
 ##### ReaSyntax has been updated #####
 ######################################
 
+A lot of effort has been invested in this. If you seriously use it, please consider supporting the developer:
+http://www.paypal.me/ReaBreeder
+http://www.paypal.me/ReaBreeder
+http://www.paypal.me/ReaBreeder
+http://www.paypal.me/ReaBreeder
+
 
 History:
 --------------------------------------
+##### v0.2.6 (April 07 2018)
+ * [Lua, EEL] Updated completions to match REAPER 5.975, SWS 2.10.0 #1, ReaPack 1.2.2 and js_ReaScriptAPI 0.985
+
 ##### v0.2.5 (April 10 2018)
  * [JS] Load JS syntax automatically for files with file extenstion ".jsfx"
 
