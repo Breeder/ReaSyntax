@@ -1,16 +1,16 @@
-##### v0.2.6 (April 07 2018)
+##### v0.2.6 (May 01 2019)
  * [Lua, EEL] Updated completions to match REAPER 5.975, SWS 2.10.0 #1, ReaPack 1.2.2 and js_ReaScriptAPI 0.985
 
-##### v0.2.5 (April 10 2018)
+##### v0.2.5 (April 10 2019)
  * [JS] Load JS syntax automatically for files with file extenstion ".jsfx"
 
-##### v0.2.4 (April 07 2018)
+##### v0.2.4 (April 07 2019)
  * [Lua, EEL] Updated completions to match REAPER 5.974, SWS 2.10.0 #1, ReaPack 1.2.2 and js_ReaScriptAPI 0.980
 
-##### v0.2.3 (March 12 2018)
+##### v0.2.3 (March 12 2019)
  * [Lua, EEL] Updated completions to match REAPER 5.973, SWS 2.10.0 #1, ReaPack 1.2.2 and js_ReaScriptAPI 0.972
 
-##### v0.2.2 (February 04 2018)
+##### v0.2.2 (February 04 2019)
  * [Lua, EEL] Updated completions to match REAPER 5.965, SWS 2.10.0, ReaPack 1.2.1 and js_ReaScriptAPI 0.963
 
 ##### v0.2.1 (September 29 2018)
