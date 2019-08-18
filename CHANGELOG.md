@@ -1,3 +1,6 @@
+##### v0.2.7 (August 18 2019)
+ * [Lua, EEL] Updated completions to match REAPER 5.982, SWS 2.10.0 #1, ReaPack 1.2.2 and js_ReaScriptAPI 0.990
+
 ##### v0.2.6 (May 01 2019)
  * [Lua, EEL] Updated completions to match REAPER 5.975, SWS 2.10.0 #1, ReaPack 1.2.2 and js_ReaScriptAPI 0.985
 
