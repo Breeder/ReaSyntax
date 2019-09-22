@@ -3,7 +3,7 @@ ReaSyntax
 
 [Sublime text](http://www.sublimetext.com/3) syntax package for scripting languages found in [Cockos REAPER](http://www.reaper.fm/): Jesusonic/EEL/LUA/WALTER
 
-A lot of effort has been invested in this. If you seriously use it, please consider [supporting the developer :heart::heart::heart:](http://www.paypal.me/ReaBreeder)
+A lot of effort has been invested in this. If you seriously use it, please consider [supporting the developer :heart::heart::heart:](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q64NF4QCJS3ZJ)
 
 
 
