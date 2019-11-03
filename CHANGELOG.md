@@ -1,3 +1,6 @@
+##### v0.2.8 (November 03 2019)
+ * [Lua, EEL] Updated completions to match REAPER 5.984, SWS 2.10.0 #1, ReaPack 1.2.2 and js_ReaScriptAPI 0.995
+
 ##### v0.2.7 (August 18 2019)
  * [Lua, EEL] Updated completions to match REAPER 5.982, SWS 2.10.0 #1, ReaPack 1.2.2 and js_ReaScriptAPI 0.990
 
@@ -33,7 +36,7 @@
 ##### v0.1.0 (September 21 2014)
  * [JS, EEL, WALTER] Added auto completion for built-in functions (EEL, JS) and keywords (WALTER)
  * [JS, EEL] Fixed local/global/instance parameters
- * [JS, EEL] Added support for namespace function parameters (a*)
+ * [JS, EEL] Added support for namespace function parameters
  * [JS] Fixed slider description when using various characters that were not letters
  * [JS] Added support for gfx_ext_retina, import and options:gmem
 

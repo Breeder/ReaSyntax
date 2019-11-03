@@ -658,8 +658,9 @@
 		{"trigger": "reaper.JS_Window_SetForeground", "contents": "reaper.JS_Window_SetForeground(${1:windowHWND})"},
 		{"trigger": "reaper.JS_Window_SetLong", "contents": "reaper.JS_Window_SetLong(${1:windowHWND}, ${2:info}, ${3:value})"},
 		{"trigger": "reaper.JS_Window_SetOpacity", "contents": "reaper.JS_Window_SetOpacity(${1:windowHWND}, ${2:mode}, ${3:value})"},
-		{"trigger": "reaper.JS_Window_SetPosition", "contents": "reaper.JS_Window_SetPosition(${1:windowHWND}, ${2:left}, ${3:top}, ${4:width}, ${5:height})"},
+		{"trigger": "reaper.JS_Window_SetPosition", "contents": "reaper.JS_Window_SetPosition(${1:windowHWND}, ${2:left}, ${3:top}, ${4:width}, ${5:height}, ${6:ZOrder}, ${7:flags})"},
 		{"trigger": "reaper.JS_Window_SetScrollPos", "contents": "reaper.JS_Window_SetScrollPos(${1:windowHWND}, ${2:scrollbar}, ${3:position})"},
+		{"trigger": "reaper.JS_Window_SetStyle", "contents": "reaper.JS_Window_SetStyle(${1:windowHWND}, ${2:style})"},
 		{"trigger": "reaper.JS_Window_SetTitle", "contents": "reaper.JS_Window_SetTitle(${1:windowHWND}, ${2:title})"},
 		{"trigger": "reaper.JS_Window_SetZOrder", "contents": "reaper.JS_Window_SetZOrder(${1:windowHWND}, ${2:ZOrder}, ${3:insertAfterHWND})"},
 		{"trigger": "reaper.JS_Window_Show", "contents": "reaper.JS_Window_Show(${1:windowHWND}, ${2:state})"},
@@ -1061,7 +1062,7 @@
 		{"trigger": "reaper.Xen_AudioWriter_Destroy", "contents": "reaper.Xen_AudioWriter_Destroy(${1:writer})"},
 		{"trigger": "reaper.Xen_AudioWriter_Write", "contents": "reaper.Xen_AudioWriter_Write(${1:writer}, ${2:numframes}, ${3:data}, ${4:offset})"},
 		{"trigger": "reaper.Xen_GetMediaSourceSamples", "contents": "reaper.Xen_GetMediaSourceSamples(${1:src}, ${2:destbuf}, ${3:destbufoffset}, ${4:numframes}, ${5:numchans}, ${6:samplerate}, ${7:sourceposition})"},
-		{"trigger": "reaper.Xen_StartSourcePreview", "contents": "reaper.Xen_StartSourcePreview(${1:source}, ${2:gain}, ${3:loop})"},
+		{"trigger": "reaper.Xen_StartSourcePreview", "contents": "reaper.Xen_StartSourcePreview(${1:source}, ${2:gain}, ${3:loop}, ${4:outputchanindexIn})"},
 		{"trigger": "reaper.Xen_StopSourcePreview", "contents": "reaper.Xen_StopSourcePreview(${1:preview_id})"},
 ]
 }
