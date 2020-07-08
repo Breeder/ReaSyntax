@@ -11,6 +11,9 @@ http://www.paypal.me/ReaBreeder
 
 History:
 --------------------------------------
+##### v0.3.0 (July 08 2020)
+ * [Lua, EEL] Updated completions to match REAPER 6.12, SWS 2.12.0 #0, ReaPack 1.2.3 and js_ReaScriptAPI 1.215
+
 ##### v0.2.9 (December 04 2019)
  * [Lua, EEL] Updated completions to match REAPER 6.0, SWS 2.11.0 #0, ReaPack 1.2.2 and js_ReaScriptAPI 0.995
 
