@@ -54,6 +54,8 @@ class ApiFunction:
 				self.__parameterVars.append (parameter.rsplit(" ", 1)[1].strip())
 
 	def __parseEelFunc (self, functionSig):
+		functionSig = functionSig.replace(" (requires REAPER 6.24 or later)", "")
+		functionSig = functionSig.replace(" (legacy syntax, also useful for allowing script to run when third-party extension is not installed)", "")
 
 		# Check for extension_api which isn't used
 		checkExtensionApi = True
@@ -305,8 +307,8 @@ def SaveApi (cFunc, eelFuncs, luaFuncs, pyFuncs):
 		funcList  = []
 
 		if   functionSig.startswith("<div class=\"c_func\"><span class=\'all_view\'>C: </span><code>"):      language = "C";      isBuiltIn = False; funcList = cFuncs;
-		elif functionSig.startswith("<div class=\"e_func\"><span class=\'all_view\'>EEL: </span><code>"):    language = "EEL";    isBuiltIn = False; funcList = eelFuncs;
-		elif functionSig.startswith("EEL: <code>"):                                                          language = "EEL";    isBuiltIn = True;  funcList = eelFuncs
+		elif functionSig.startswith("<div class=\"e_func\"><span class=\'all_view\'>EEL2: </span><code>"):   language = "EEL";    isBuiltIn = False; funcList = eelFuncs;
+		elif functionSig.startswith("EEL2: <code>"):                                                         language = "EEL";    isBuiltIn = True;  funcList = eelFuncs
 		elif functionSig.startswith("<div class=\"l_func\"><span class=\'all_view\'>Lua: </span><code>"):    language = "Lua";    isBuiltIn = False; funcList = luaFuncs;
 		elif functionSig.startswith("Lua: <code>"):                                                          language = "Lua";    isBuiltIn = True;  funcList = luaFuncs;
 		elif functionSig.startswith("<div class=\"p_func\"><span class=\'all_view\'>Python: </span><code>"): language = "Python"; isBuiltIn = False; funcList = pyFuncs;
@@ -351,7 +353,7 @@ def CreateEelCompletions (apiFunctionList, filePath):
 		f.write("\"contents\": \"" + contentsStr + "\"")
 		f.write("},\n")
 
-	f.write("]\n}")
+	f.write("\t]\n}")
 	f.close()
 
 def CreateLuaCompletions (apiFunctionList, filePath):
@@ -384,7 +386,7 @@ def CreateLuaCompletions (apiFunctionList, filePath):
 		f.write("\"contents\": \"" + contentsStr + "\"")
 		f.write("},\n")
 
-	f.write("]\n}")
+	f.write("\t]\n}")
 	f.close()
 
 # ---------------------------------------------------------------------------------------------------------------------

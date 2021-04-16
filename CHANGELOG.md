@@ -1,3 +1,9 @@
+##### v0.3.4 (April 16 2021)
+ * [EEL] Added completions support for extension API (REAPER 6.24 introduced new syntax for extension API functions without using extension_api)
+ * [EEL] Added completions back (due to recent changes in REAPER, auto-build script wasn't exporting EEL completions)
+ * [Lua, EEL] Added completions support for ReaImGui (current version: 0.2)
+ * [Lua, EEL] Updated completions to match REAPER 6.27, SWS 2.12.1.3, ReaPack 1.2.3.1 and js_ReaScriptAPI 1.220
+
 ##### v0.3.3 (March 30 2021)
  * [Lua, EEL] Updated completions to match REAPER 6.26, SWS 2.12.1.3, ReaPack 1.2.3.1 and js_ReaScriptAPI 1.220
 
