@@ -11,6 +11,12 @@ http://www.paypal.me/ReaBreeder
 
 History:
 --------------------------------------
+##### v0.3.5 (April 20 2021)
+ * [Lua] Removed three completions that were messing with the Sublime Text's auto-complete (Fixes #6):
+   * reaper.ImGui_TableFlags_NoHostExtendX()
+   * reaper.ImGui_TableFlags_NoHostExtendY()
+   * reaper.ImGui_GetTextLineHeightWithSpacing(ImGui_Context ctx)
+  
 ##### v0.3.4 (April 16 2021)
  * [EEL] Added completions support for extension API (REAPER 6.24 introduced new syntax for extension API functions without using extension_api)
  * [EEL] Added completions back (due to recent changes in REAPER, auto-build script wasn't exporting EEL completions)

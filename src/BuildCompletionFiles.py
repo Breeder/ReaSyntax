@@ -290,12 +290,22 @@ def StripHtmlTagsFromCodeTags (htmlLine):
 
 def IsFunctionSigLegal (str, language, isBuiltIn):
 	legal = True;
+	# Messes with auto-complete when writing "then" so ignore these. See #Issue 6 on GitHub (https://github.com/Breeder/ReaSyntax/issues/6)
+	if language == "Lua":
+		if (re.search("ImGui_TableFlags_NoHostExtendX\\s*\\(", str) or 
+		    re.search("ImGui_TableFlags_NoHostExtendY\\s*\\(", str) or
+		    re.search("ImGui_GetTextLineHeightWithSpacing\\s*\\(", str)):
+			legal = False
 
+	# Not an API function
 	if language == "EEL" and isBuiltIn:
-		if str == "gfx VARIABLES":                            legal = False; # Not an API function
-		#elif str == "extension_api(\"function_name\"[,...])": legal = False; # used by extensions, no need to document it itself
+		if str == "gfx VARIABLES":
+			legal = False;
+
+	 # Not an API function
 	if language == "Lua" and isBuiltIn:
-		if str == "gfx VARIABLES":                            legal = False; # Not an API function
+		if str == "gfx VARIABLES":
+			legal = False;
 	return legal;
 
 # ---------------------------------------------------------------------------------------------------------------------
