@@ -1,3 +1,6 @@
+##### v0.3.6 (May 24 2021)
+ * [Lua, EEL] Updated completions to match REAPER 6.27, js_ReaScriptAPI 1.220, ReaImGui 0.4, ReaPack 1.2.3.1 and SWS 2.12.1.3
+
 ##### v0.3.5 (April 20 2021)
  * [Lua] Removed three completions that were messing with the Sublime Text's auto-complete (Fixes #6):
    * reaper.ImGui_TableFlags_NoHostExtendX()
