@@ -1,3 +1,6 @@
+##### v0.3.8 (July 06 2021)
+ * [Lua, EEL] Updated completions to match REAPER 6.30, js_ReaScriptAPI 1.220, ReaImGui 0.5.2, ReaPack 1.2.3.1 and SWS 2.12.1.3
+
 ##### v0.3.7 (May 24 2021)
  * [Lua, EEL] Updated completions to match REAPER 6.29, js_ReaScriptAPI 1.220, ReaImGui 0.4, ReaPack 1.2.3.1 and SWS 2.12.1.3
 
